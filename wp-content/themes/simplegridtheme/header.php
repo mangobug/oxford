@@ -57,45 +57,42 @@
 
       </div>
 
+      <hr/>
+
       <?php if ( is_front_page() && is_home() ) { ?>
 
+        <div class="row">
 
-      <div class="row">
+          <div class="search_column column-1">
 
-        <div class="search_column">
+            <p><strong>EXPLORE IDEAS ABOUT</strong></p>
 
-          <p><strong>Explore ideas about</strong></p>
+            <?php wp_nav_menu('menu=category_menu&container=false&menu_class=cat_menu'); ?>
 
-          <?php wp_nav_menu('menu=category_menu&container=false&menu_class=cat_menu'); ?>
+          </div>
 
+          <div class="search_column">
+
+            <h3>Oxford Blueprint.</h3>
+
+            <p class="search_blurb"><strong>An exploration of ideas, innovations and sustainability.</strong></p>
+
+            <div class="search_cont">
+
+                <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+
+                  <input type="text" name="s" id="s" />
+
+                  <INPUT type="submit" class="search_button" value="Search">
+
+                </form>
+
+              </div><!--//search_cont-->
+
+            </div>
+
+          <div class="clear"></div>
         </div>
-
-        <div class="search_column">
-
-          <h3>Oxford Blueprint.</h3>
-
-          <p class="search_blurb"><strong>An exploration of ideas, innovations and sustainability.</strong></p>
-
-          <div class="search_cont">
-
-              <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-
-                <input type="text" name="s" id="s" />
-
-
-
-                <INPUT type="submit" class="search_button" value="Search">
-
-
-
-              </form>
-
-          </div><!--//search_cont-->
-
-        </div>
-
-        <div class="clear"></div>
-    </div>
 
     <?php } ?>
 

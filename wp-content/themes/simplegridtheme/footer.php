@@ -12,7 +12,7 @@
 
 
 
-            <div class="footer_box">
+            <div class="footer_box footer_box_first">
               <div>
                 <span>
                 <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/footer-logo.png" class="logo" /></a>
@@ -23,13 +23,13 @@
               <div class="clear"></div>
 
               <div>
-                <p>Oxford Blueprint is a consectetur adipisicing elit, sed do eius</p>
+                <p>Oxford Blueprint is a consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minum veniam.</p>
               </div>
 
               <div class="clear"></div>
 
-              <div>
-                <h3>FOLLOW US</h3>
+              <div style="width: 33%; ">
+                <span>FOLLOW US</span>
 
                 <ul class="social_icons">
 
@@ -51,17 +51,6 @@
             </div><!--//footer_box-->
 
 
-<!--
-            <div class="footer_box">
-
-                <h3>Widget Footer</h3>
-
-                <p>Please use widget to setup this text box. Please use widget to setup this text box. Please use widget to setup this text box. Please use widget to setup this text box.</p>
-
-            </div><!--//footer_box-->
-
-
-
             <?php endif; ?>
 
 
@@ -72,7 +61,9 @@
 
             <div class="footer_box footer_box_last">
 
-                <h2>Stay up to date with the latest in innovation and sustainabilit</h2>
+                <p>Stay up to date with the latest in innovation and sustainability by subscribing to the Oxford Blueprint newsletter</p>
+
+                <?php echo do_shortcode("[mc4wp_form id='74']"); ?>
 
             </div><!--//footer_box-->
 

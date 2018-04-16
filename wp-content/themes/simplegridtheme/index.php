@@ -26,7 +26,7 @@
             <div class="home_post_box">
             <?php } ?>
             
-                <div class="post_box_category">
+                <div class="post_box_category category_id_<?php the_category_id(); ?>">
                   <?php the_category(', '); ?>
                 </div>
 
@@ -59,7 +59,7 @@
 
         <div class="clear"></div>
 
-        <hr>
+        <hr/>
 
         <div class="">
           <h1>About Oxford Blueprint</h1>
