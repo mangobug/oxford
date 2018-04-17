@@ -63,7 +63,7 @@
 
                 <p>Stay up to date with the latest in innovation and sustainability by subscribing to the Oxford Blueprint newsletter</p>
 
-                <?php echo do_shortcode("[mc4wp_form id='74']"); ?>
+                <?php echo do_shortcode("[contact-form-7 id='84']"); ?>
 
             </div><!--//footer_box-->
 

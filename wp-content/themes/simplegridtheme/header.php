@@ -35,7 +35,7 @@
         <?php } else { ?>
           <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" class="logo" /></a>
 
-          <span>XXXXXXXXXXXXXX</span>
+          <span><strong>XXXXXXX</strong></span>
         <?php } ?>                    
         
         <div class="right">
@@ -57,21 +57,22 @@
 
       </div>
 
-      <hr/>
 
       <?php if ( is_front_page() && is_home() ) { ?>
 
-        <div class="row">
+        <hr/>
 
-          <div class="search_column column-1">
+        <div class="row-2">
 
-            <p><strong>EXPLORE IDEAS ABOUT</strong></p>
+          <div class="search_column" id="column-1">
+
+            <h3>EXPLORE IDEAS ABOUT:</h3>
 
             <?php wp_nav_menu('menu=category_menu&container=false&menu_class=cat_menu'); ?>
 
           </div>
 
-          <div class="search_column">
+          <div class="search_column" id="column-2">
 
             <h3>Oxford Blueprint.</h3>
 

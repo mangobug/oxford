@@ -25,7 +25,7 @@
             <?php } else { ?>
             <div class="home_post_box">
             <?php } ?>
-            
+
                 <div class="post_box_category category_id_<?php the_category_id(); ?>">
                   <?php the_category(', '); ?>
                 </div>
@@ -37,9 +37,11 @@
                 </div><!--//home_post_desc-->
                 
                 <div class="home_post_title_cont">
+                  <a href="<?php the_permalink(); ?>">
                     <p class="heading"><?php the_title(); ?></p>
                     <h3>by <?php the_author(); ?></h3>
                     <span><img src="<?php bloginfo('stylesheet_directory'); ?>/images/arrow.png" class="arrow" /></span>
+                  </a>
                 </div><!--//home_post_title_cont-->
             </div><!--//home_post_box-->
         
@@ -61,7 +63,7 @@
 
         <hr/>
 
-        <div class="">
+        <div class="homepage_blurb">
           <h1>About Oxford Blueprint</h1>
 
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
@@ -78,6 +80,8 @@
 // Ajax-fetching "Load more posts"
 $('.load_more_cont a').live('click', function(e) {
 	e.preventDefault();
+  var $ = jQuery.noConflict();
+
 	//$(this).addClass('loading').text('Loading...');
         //$('.load_more_text a').html('Loading...');
 	$.ajax({
