@@ -1,0 +1,54 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#load_posts_container {
+  padding: 30px 0;
+  overflow: hidden;
+}
+
+.post-banner {
+  overflow: hidden;
+  max-height: 400px;
+}
+
+.single-blog-area {
+  overflow: hidden;
+  position: relative;
+  margin: -180px 0 0;
+}
+
+.single-blog-area .container {
+  background: #fff;
+  padding: 20px 30px;
+}
+
+.single-blog-area .saboxplugin-wrap {
+  border: none;
+}
+
+.single-blog-area .saboxplugin-wrap .saboxplugin-gravatar {
+  float: none;
+  padding: 0;
+}
+
+.single-blog-area .saboxplugin-wrap .saboxplugin-authorname {
+  margin: 20px 0 0;
+}
+
+.single-blog-area .saboxplugin-wrap .saboxplugin-desc {
+  margin: 0;
+}
+
+.related-blog-area {
+  overflow: hidden;
+  background: #eceff2;
+  border-top: 1px solid #c8ced3;
+  padding: 50px 0 25px;
+}
+
+.relpost-block-container .relpost-block-single-image {
+  width: 100% !important;
+  height: 209px !important;
+}

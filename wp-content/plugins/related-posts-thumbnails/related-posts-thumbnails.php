@@ -630,10 +630,10 @@ private function review_dismissal() {
 					$output .= '><span>' . $title . $excerpt . '</span></a></li>';
 				}
 			} else {
-				$output .= '<a class="relpost-block-single" href="' . get_permalink( $post->ID ) . '">';
-				$output .= '<div style="width: ' . $width . 'px; height: ' . ( $height + $text_height ) . 'px;">';
+				$output .= '<a class="home_post_box" href="' . get_permalink( $post->ID ) . '">';
+				$output .= '<div class="clearfix">';
 				$output .= '<div class="relpost-block-single-image" alt="' . $alt . '"  style=" background: transparent url(' . esc_url( $url ) . ') no-repeat scroll 0% 0%; width: ' . $width . 'px; height: ' . $height . 'px; "></div>';
-				$output .= '<div class="relpost-block-single-text"  style="font-family: ' . $fontface . ';  font-size: ' . get_option( 'relpoststh_fontsize', $this->font_size ) . 'px;  color: ' . get_option( 'relpoststh_fontcolor', $this->font_color ) . ';">' . $title . $excerpt . '</div>';
+				$output .= '<div class="home_post_title_cont"><p class="heading">' . $title . $excerpt . '</p></div>';
 				$output .= '</div>';
 				$output .= '</a>';
 			}

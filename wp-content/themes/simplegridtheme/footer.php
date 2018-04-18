@@ -3,6 +3,7 @@
 
 
     <div id="footer">
+      <div class="container">
 
         <div class="footer_widgets_cont">
 
@@ -79,7 +80,7 @@
 
         </div><!--//footer_widgets_cont-->
 
-
+      </div>
 
     </div><!--//footer-->
 
