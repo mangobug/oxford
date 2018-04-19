@@ -18,7 +18,7 @@
                 <span>
                 <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/footer-logo.png" class="logo" /></a>
               </span>
-                <div>BLUEPRINT</div>
+                <div class="slogan">BLUEPRINT</div>
               </div>
 
               <div class="clear"></div>
@@ -29,7 +29,7 @@
 
               <div class="clear"></div>
 
-              <div style="width: 33%; ">
+              <div class="social-area">
                 <span>FOLLOW US</span>
 
                 <ul class="social_icons">

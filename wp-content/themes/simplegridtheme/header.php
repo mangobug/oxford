@@ -70,7 +70,7 @@
           <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" class="logo" /></a>
 
 
-          <span><strong>XXXXXXX</strong></span>
+          <strong class="slogan">XXXXXXX</strong>
         <?php } ?>
 
 

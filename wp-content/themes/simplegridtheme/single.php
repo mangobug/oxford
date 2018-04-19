@@ -61,7 +61,8 @@
         </div>
         <div class="related-blog-area">
             <div class="container">
-                <?php get_related_posts_thumbnails(); ?>
+                <h3 class="blog-heading">Related Stories:</h3>
+                    <?php get_related_posts_thumbnails(); ?>
             </div>
         </div>
 

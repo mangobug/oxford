@@ -1,6 +1,16 @@
 .container {
-  max-width: 1000px;
+  max-width: 1212px;
   margin: 0 auto;
+}
+
+.slogan {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 26px 0 0 25px;
+  border-left: 2px solid #3a4a58;
+  font-size: 16px;
+  padding: 0 0 0 30px;
+  font-family: Flama-Medium,Helvetica,Arial,sans-serif;
 }
 
 #load_posts_container {
@@ -10,18 +20,22 @@
 
 .post-banner {
   overflow: hidden;
-  max-height: 400px;
+  max-height: 729px;
+}
+
+.post-banner img {
+  width: 100%;
 }
 
 .single-blog-area {
   overflow: hidden;
   position: relative;
-  margin: -180px 0 0;
+  margin: -367px 0 0;
 }
 
 .single-blog-area .container {
   background: #fff;
-  padding: 20px 30px;
+  padding: 50px 54px;
 }
 
 .single-blog-area .saboxplugin-wrap {
@@ -45,10 +59,90 @@
   overflow: hidden;
   background: #eceff2;
   border-top: 1px solid #c8ced3;
-  padding: 50px 0 25px;
+  padding: 40px 0 20px;
+}
+
+.related-blog-area .blog-heading {
+  font-size: 20px;
+  margin: 0 0 30px;
 }
 
 .relpost-block-container .relpost-block-single-image {
   width: 100% !important;
   height: 209px !important;
+}
+
+.side_box .sfsi_wicons {
+  margin: 0 20px 0 0 !important;
+}
+
+.social-area .social_icons,
+.social-area span {
+  float: left;
+}
+
+@media only screen and (max-width: 1440px) {
+  .container {
+    width: 1000px;
+  }
+
+  .blog_left {
+    width: 60%;
+    font-size: 17px;
+  }
+
+  #sidebar {
+    width: 35%;
+  }
+
+  .blog_left h1 {
+    font-size: 20px;
+  }
+
+  .post-banner {
+    height: 580px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .single-blog-area .container {
+    width: 800px;
+    padding: 50px 20px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    width: 750px;
+  }
+
+  .blog_left {
+    width: 60%;
+    font-size: 17px;
+  }
+
+  #sidebar {
+    width: 35%;
+  }
+
+  .blog_left h1 {
+    font-size: 20px;
+  }
+
+  #menu_container {
+    font-size: 12px;
+  }
+
+  .single-blog-area .container {
+    width: 600px;
+    padding: 50px 20px;
+  }
+
+  #menu_container ul {
+    padding: 10px 0;
+  }
+
+  #menu_container ul li a {
+    margin: 0 0 0 30px;
+  }
 }

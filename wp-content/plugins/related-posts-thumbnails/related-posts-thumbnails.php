@@ -630,12 +630,23 @@ private function review_dismissal() {
 					$output .= '><span>' . $title . $excerpt . '</span></a></li>';
 				}
 			} else {
-				$output .= '<a class="home_post_box" href="' . get_permalink( $post->ID ) . '">';
-				$output .= '<div class="clearfix">';
-				$output .= '<div class="relpost-block-single-image" alt="' . $alt . '"  style=" background: transparent url(' . esc_url( $url ) . ') no-repeat scroll 0% 0%; width: ' . $width . 'px; height: ' . $height . 'px; "></div>';
-				$output .= '<div class="home_post_title_cont"><p class="heading">' . $title . $excerpt . '</p></div>';
-				$output .= '</div>';
-				$output .= '</a>';
+				$output .= '<div class="home_post_box">
+  										<div class="post_box_category category_id_' . the_category_id(false) . '">
+    										' . get_the_category_list(', ') . '
+  										</div>
+  										<a href="' . get_permalink( $post->ID ) . '">
+    									' . get_the_post_thumbnail($post, 'home-post', array('alt' => 'post image', 'class' => 'rounded')) . '
+  										</a>
+  										<div class="home_post_desc" id="home_post_desc' . $post->ID . '">
+  										</div>
+										  <div class="home_post_title_cont">
+										    <a href="' . get_permalink( $post->ID ) . '">
+										      <p class="heading">' . $title . '</p>
+										      <h3>by '. get_the_author() .'</h3>
+										      <span><img src="' . get_bloginfo('stylesheet_directory') . '/images/arrow.png" class="arrow"></span>
+										    </a>
+										  </div>
+										</div>';
 			}
 		} // end foreach
 		if ( $relpoststh_output_style == 'list' ) {
