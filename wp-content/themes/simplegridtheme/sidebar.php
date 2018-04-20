@@ -7,7 +7,6 @@
                   </h3>
                   <p><?php $authorDesc = the_author_meta('description'); echo $authorDesc; ?></p>
 
-                  <a href="#">READ MORE ABOUT <?php $authorFName = the_author_meta('first_name'); echo $authorFName; ?></a>
                 </div><!--//side_box-->
 
 

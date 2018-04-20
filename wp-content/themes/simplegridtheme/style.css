@@ -44,7 +44,7 @@ Tags: 4 column theme, clean, portfolio
 	font-weight: normal;
 }
 @font-face {
-	font-family: Flama-Medium;
+	font-family: FlamaMedium;
 	src: url('fonts/FlamaMedium%20Regular.otf');
 	font-weight: normal;
 }
@@ -57,8 +57,9 @@ Tags: 4 column theme, clean, portfolio
 html, body { overflow-x: hidden; }
 body { font-size: 13px; font-family: Flama-Book,Helvetica,Arial,sans-serif; color: #3a4a58; line-height: normal; }
 
-h1 { font-family: Flama-Book,Helvetica,Arial,sans-serif; font-size: 30px; line-height: 35px; }
-
+h1 { font-size: 30px; font-family: Flama-Book,Helvetica,Arial,sans-serif; line-height: 35px; }
+h2 { font-size: 26px; font-family: Flama,Helvetica,Arial,sans-serif; }
+h3 { font-size: 22px; font-family: FlamaMedium,Helvetica,Arial,sans-serif;}
 h2,h3,h4,h5 { font-family: Flama,Helvetica,Arial,sans-serif; margin: 10px 0; }
 
 p { font-family: Flama-Book,Helvetica,Arial,sans-serif; margin: 10px 0; line-height: 2; }
@@ -129,7 +130,7 @@ a:hover { color:#333; }
 
 
 
-.home_post_box { float: left; width: 321px; margin-right: 18px; margin-bottom: 25px; border-radius: 3px;
+.home_post_box { float: left; width: 300px; margin-right: 18px; margin-bottom: 25px; border-radius: 3px;
 
 -moz-border-radius: 3px; -webkit-border-radius: 3px; -khtml-border-radius: 3px; overflow: hidden; position: relative;
 
@@ -145,7 +146,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .home_post_box img { width: 321px; height: 209px; }
 
-.home_post_title_cont { position: absolute; bottom: 0px; width: 308px; padding-left: 14px; }
+.home_post_title_cont { position: absolute; bottom: 0px; width: 287px; padding-left: 14px; }
 
 .home_post_title_cont .heading { color: #fff; font-size: 28px; line-height: 1; }
 .home_post_title_cont p { font-size: 12px; line-height: normal; }
@@ -157,7 +158,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .home_post_title_cont h4 a:hover { text-decoration: underline; }
 
-
+.homepage_blurb { width: 95%; }
 
 .blog_box_cont { float: left; width: 321px; margin-right: 18px; }
 
@@ -167,18 +168,13 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .blog_content { margin-bottom: 25px; padding-top: 10px; float: left; }
 
-
-
 .home_post_desc { width: 235px; padding: 15px 10px; left: 34px; top: 0; position: absolute; color: #fff; background-color:rgba(0,0,0,0.5); font-size: 10px; display: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; overflow: hidden; }
 
 
 
 .blog_left { float: left; width: 785px;  font-family: Flama-Medium,Helvetica,Arial,sans-serif; font-size: 20px; }
 
-.blog_left p {
-	line-height: 32px;
-	margin: 0;
-}
+.blog_left p { line-height: 32px; margin: 0; }
 
 .blog_left h1 { margin-top: 0; margin: 0 0 28px; }
 
@@ -188,10 +184,9 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .blog_nav_cont a:hover { text-decoration: underline; }
 
-
-
 .home_post_box_last { margin-right: 0; }
 
+.page-title { text-transform: uppercase; margin-bottom: 25px; }
 
 
 #commentform input[type=submit] { background-color: #333; border: none; color: #fff; padding: 8px 10px; }
@@ -201,10 +196,10 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 .post_box_category a { font-size: 10px; font-weight: 100; float: right; color: #FFFFFF; padding: 10px; text-decoration: none; text-transform: uppercase; }
 .category_id_1 { background: linear-gradient(rgba(152, 61, 0, 0.65), rgba(152, 61, 0, 0.65)); height: 100%; }
 .category_id_2 { background: linear-gradient(rgba(152, 61, 0, 0.65), rgba(152, 61, 0, 0.65)); height: 100%; }
-.category_id_3 { background: linear-gradient(rgba(175, 70, 0, 0.65), rgba(175, 70, 0, 0.65)); height: 100%; }
-.category_id_4 { background: linear-gradient(rgba(20, 26, 31, 0.65), rgba(20, 26, 31, 0.65)); height: 100%; }
-.category_id_5 { background: linear-gradient(rgba(41, 122, 0, 0.65), rgba(41, 122, 0, 0.65)); height: 100%; }
-.category_id_6 { background: linear-gradient(rgba(75, 0, 112, 0.65), rgba(75, 0, 112, 0.65)); height: 100%; }
+.category_id_3 { background: linear-gradient(rgba(255, 102, 0, 0.65), rgba(255, 102, 0, 0.65)); height: 100%; }
+.category_id_4 { background: linear-gradient(rgba(58, 74, 88, 0.65), rgba(58, 74, 88, 0.65)); height: 100%; }
+.category_id_5 { background: linear-gradient(rgba(51, 153, 0, 0.65), rgba(51, 153, 0, 0.65)); height: 100%; }
+.category_id_6 { background: linear-gradient(rgba(102, 0, 153, 0.65), rgba(102, 0, 153, 0.65)); height: 100%; }
 .search_column { float: left; }
 .arrow { width: 40px!important; height: 40px!important; float: right; }
 .load_more_cont { margin-bottom: 40px; }
@@ -219,6 +214,9 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .homepage_blurb h1 { margin-bottom: 15px; }
 .homepage_blurb p { font-size: 16px; }
+
+.results_search_form { margin: 45px auto 15px auto; position: relative; left: 25%; }
+.results_search_form input[type=text] { font-size: 16px; font-family: Flama-Book,Helvetica,Arial,sans-serif; color: #3a4a58; width: 334px; height: 23px; border: none; border-bottom: 1px solid #3a4a58; padding-left: 20px; }
 
 /* Sidebar */
 
@@ -240,6 +238,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .side_box a:hover { text-decoration: underline; }
 
+.side_box .avatar { width: 100px; height: 100px; }
 
 
 /* Footer */
@@ -248,7 +247,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 #footer .slogan { margin: 30px 0 0 25px; border-left: 2px solid #fff; }
 
-.footer_widgets_cont { padding: 0 8px 0 28px; }
+.footer_widgets_cont { padding: 0 8px 0 0px; }
 
 
 
@@ -503,4 +502,3 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 
 /* @end */
-
