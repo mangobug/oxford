@@ -630,8 +630,10 @@ private function review_dismissal() {
 					$output .= '><span>' . $title . $excerpt . '</span></a></li>';
 				}
 			} else {
+				$categories = get_the_category();
+				$cat_name = str_replace(" ", "_", $categories[0]->cat_name);
 				$output .= '<div class="home_post_box">
-  										<div class="post_box_category category_id_' . the_category_id(false) . '">
+  										<div class="post_box_category category_id_' . strtolower($cat_name) . '">
     										' . get_the_category_list(', ') . '
   										</div>
   										<a href="' . get_permalink( $post->ID ) . '">

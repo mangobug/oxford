@@ -1,8 +1,6 @@
 <?php get_header(); ?>
 
-
-
-        <div id="load_posts_container" class="container">
+        <div id="load_posts_container" class="grid container">
 
 
 
@@ -40,7 +38,10 @@
 
         while (have_posts()) : the_post(); ?>
 
-
+            <?php
+              $categories = get_the_category();
+              $cat_name = str_replace(" ", "_", $categories[0]->cat_name);
+            ?>
 
             <?php if($x == 2) { ?>
 
@@ -53,8 +54,8 @@
             <?php } ?>
 
 
-                <div class="post_box_category category_id_<?php the_category_id(); ?>">
-                  <?php the_category(', '); ?>
+                <div class="post_box_category category_id_<?php echo strtolower($cat_name); ?>">
+                  <a href="javascript:void();" rel="category tag"><?php echo $cat_name; ?></a>
                 </div>
 
                 <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('home-post',array('alt' => 'post image', 'class' => 'rounded')); ?></a>
@@ -100,8 +101,8 @@
 
         </div><!--//load_posts_container-->
 
-
         <div class="container">
+
           <div class="load_more_cont">
 
               <p align="center"><span class="load_more_text"><?php next_posts_link('LOAD MORE') ?></span></p>
@@ -125,7 +126,6 @@
 
           </div>
 
-          <?php get_related_posts_thumbnails(); ?>
         </div>
 
 
@@ -216,7 +216,5 @@ $('.load_more_cont a').live('click', function(e) {
 });
 
 </script>
-
-
 
 <?php get_footer(); ?>

@@ -19,9 +19,9 @@
 
   <?php wp_head(); ?>
 
-<!--  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>-->
 
   <script src="<?php bloginfo('stylesheet_directory'); ?>/js/main.js" type="text/javascript" charset="utf-8"></script>
 
@@ -109,17 +109,27 @@
 
           <div class="search_column" id="column-1">
 
-            <h3>EXPLORE IDEAS ABOUT:</h3>
+            <h4>EXPLORE IDEAS ABOUT:</h4>
 
             <?php wp_nav_menu('menu=category_menu&container=false&menu_class=cat_menu'); ?>
 
+            <!--
+            <ul id="menu-category-menu" class="cat_menu">
+              <li id="menu-item-66" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-66" data-filter=".Leadership"><a href="#">Leadership</a></li>
+              <li id="menu-item-67" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-67" data-filter=".Innovation"><a href="#">Innovation</a></li>
+              <li id="menu-item-68" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-68" data-filter=".Customer_Experience"><a href="#">Customer Experience</a></li>
+              <li id="menu-item-69" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-69" data-filter=".Sustainability"><a href="#">Sustainability</a></li>
+              <li id="menu-item-71" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-71" data-filter=".Global_Ideas"><a href="#">Global Ideas</a></li>
+              <li id="menu-item-73" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-73" data-filter=".Operations"><a href="#">Operations</a></li>
+            </ul>
+            -->
           </div>
 
           <div class="search_column" id="column-2">
 
             <h3>Oxford Blueprint.</h3>
 
-            <p class="search_blurb"><strong>An exploration of ideas, innovations and sustainability.</strong></p>
+            <p class="search_blurb">An exploration of ideas, innovations and sustainability.</p>
 
             <div class="search_cont">
 

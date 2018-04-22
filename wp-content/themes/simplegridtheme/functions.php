@@ -49,7 +49,7 @@ if ( function_exists('register_sidebar') ) {
 		'after_widget' => '</div>',
 		'before_title' => '<h3>',
 		'after_title' => '</h3>',
-	));                
+	));
 }
 
 function catch_that_image() {
@@ -101,8 +101,7 @@ function kriesi_pagination($pages = '', $range = 2)
          if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";
          echo "</div>\n";
      }
-}
-
+}
 
 /*
 // **** EX RECENT POSTS START ****
