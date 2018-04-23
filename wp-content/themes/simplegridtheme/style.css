@@ -60,7 +60,7 @@ Tags: 4 column theme, clean, portfolio
 * { margin: 0; padding: 0; }
 
 html, body { overflow-x: hidden; }
-body { font-size: 13px; font-family: Flama-Book,Helvetica,Arial,sans-serif; color: #3a4a58; line-height: normal; }
+body { font-size: 15px; font-family: Flama-Book,Helvetica,Arial,sans-serif; color: #3a4a58; line-height: normal; }
 
 h1 { font-size: 30px; font-family: Flama-Book,Helvetica,Arial,sans-serif; line-height: 35px; }
 h2 { font-size: 26px; font-family: Flama,Helvetica,Arial,sans-serif; }
@@ -157,9 +157,9 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .home_post_title_cont { position: absolute; bottom: 0px; width: 287px; padding-left: 14px; }
 
-.home_post_title_cont .heading { color: #fff; font-size: 28px; line-height: 1; }
+.home_post_title_cont .heading { color: #fff; font-size: 28px; line-height: 1; font-family: Flama,Helvetica,Arial,sans-serif; }
 .home_post_title_cont p { font-size: 12px; line-height: normal; }
-.home_post_title_cont h3 { color: #fff; font-size: 14px; margin: 0; font-weight: normal; opacity:10; filter:alpha(opacity=100); }
+.home_post_title_cont h3 { color: #fff; font-size: 16px; margin: 0; font-weight: normal; opacity:10; filter:alpha(opacity=100); }
 
 .home_post_title_cont h4 { margin: 0; font-size: 11px; font-weight: normal; }
 
@@ -181,7 +181,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .blog_left { float: left; width: 785px;  font-family: Flama-Medium,Helvetica,Arial,sans-serif; font-size: 20px; }
 
-.blog_left p { line-height: 32px; margin: 0; }
+.blog_left p { line-height: 28px; margin: 0; }
 
 .blog_left h1 { margin-top: 0; margin: 0 0 28px; }
 
@@ -250,7 +250,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .side_box .textwidget { padding: 0 10px; }
 
-.side_box p { font-size: 17px; line-height: 24px; }
+.side_box p { font-size: 15px; line-height: 21px; }
 
 .side_box a { color: #000; text-decoration: none; }
 

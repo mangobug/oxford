@@ -88,7 +88,7 @@
 
   .blog_left {
     width: 60%;
-    font-size: 17px;
+    font-size: 16px;
   }
 
   #sidebar {
@@ -145,4 +145,60 @@
   #menu_container ul li a {
     margin: 0 0 0 30px;
   }
+}
+
+#Contributors .head-block {
+  overflow: hidden;
+  padding: 60px 0;
+}
+
+#Contributors .head-block h2 {
+  font-weight: normal;
+}
+
+.Contributors-info {
+  padding: 40px 0;
+  border-top: 1px solid #ccc;
+  font-style: normal;
+  overflow: hidden;
+}
+
+.Contributors-info .img-box {
+  float: left;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  margin: 0 20px 0 0;
+}
+
+.Contributors-info .img-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.Contributors-info .txt-holder {
+  overflow: hidden;
+}
+
+.Contributors-info .txt-holder .name {
+  font-size: 20px;
+  display: block;
+  line-height: 22px;
+  margin: 0 0 10px;
+}
+
+.Contributors-info .txt-holder .description {
+  font-size: 18px;
+  display: block;
+  line-height: 20px;
+  margin: 0 0 10px;
+}
+
+.Contributors-info .txt-holder .btn-more {
+  float: right;
+  font-family: Flama-Medium,Helvetica,Arial,sans-serif;
+  padding: 12px 35px;
+  border: 1px solid #969ea6;
+  font-style: normal;
 }
