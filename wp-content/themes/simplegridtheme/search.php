@@ -33,6 +33,8 @@
             );
 
             query_posts($args);
+            $query_products = new WP_Query($args);
+
             $x = 0;
 
             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -102,13 +104,102 @@
 
               <div class="container">
                 <div class="load_more_cont">
-                    <p align="center"><span class="load_more_text"><?php next_posts_link('LOAD MORE') ?></span></p>
+                    <p align="center"><span class="load_more_text"><?php next_posts_link('LOAD MORE', $query_products->max_num_pages) ?></span></p>
                 </div><!--//load_more_cont-->
-
+                <div class="clear"></div>
+              </div>
             <?php } else { ?>
               <p>No search results found.</p>
             <?php } ?>
 
-            <div class="clear"></div>
+        </div>
+
+        <script type="text/javascript">
+
+        // Ajax-fetching "Load more posts"
+
+        $('.load_more_cont a').live('click', function(e) {
+
+        	e.preventDefault();
+
+          var $ = jQuery.noConflict();
+
+        	//$(this).addClass('loading').text('Loading...');
+
+                //$('.load_more_text a').html('Loading...');
+
+        	$.ajax({
+
+        		type: "GET",
+
+        		url: $(this).attr('href') + '#main_container',
+
+        		dataType: "html",
+
+        		success: function(out) {
+
+        			result = $(out).find('#load_posts_container .home_post_box');
+
+        			nextlink = $(out).find('.load_more_cont a').attr('href');
+
+                                //alert(nextlink);
+
+        			//$('#boxes').append(result).masonry('appended', result);
+
+                            $('#load_posts_container').append(result);
+
+        			//$('.fetch a').removeClass('loading').text('Load more posts');
+
+                                //$('.load_more_text a').html('Load More');
+
+
+
+
+
+        			if (nextlink != undefined) {
+
+        				$('.load_more_cont a').attr('href', nextlink);
+
+        			} else {
+
+        				$('.load_more_cont').remove();
+
+                                        $('#load_posts_container').append('<div class="clear"></div>');
+
+                                      //  $('.load_more_cont').css('visibilty','hidden');
+
+        			}
+
+
+
+                            if (nextlink != undefined) {
+
+                                $.get(nextlink, function(data) {
+
+                                  //alert(nextlink);
+
+                                  if($(data + ":contains('home_post_box')") != '') {
+
+                                    //alert('not found');
+
+                                      //                      $('.load_more_cont').remove();
+
+                                                            $('#load_posts_container').append('<div class="clear"></div>');
+
+                                  }
+
+                                });
+
+                            }
+
+
+
+        		}
+
+        	});
+
+        });
+
+        </script>
         
 <?php get_footer(); ?>

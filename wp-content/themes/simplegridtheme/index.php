@@ -21,10 +21,9 @@
                      );
 
         query_posts($args);
+        $query_products = new WP_Query($args);
 
         $x = 0;
-
-
 
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
@@ -84,7 +83,7 @@
 
 
 
-            <?php if($x == 2) { $x = -1; /*echo '<div class="clear"></div>';*/ } ?>
+            <?php if($x == 2) { $x = -1; } ?>
 
 
 
@@ -93,8 +92,6 @@
         <?php endwhile; ?>
 
         <?php wp_reset_query(); ?>
-
-
 
         <div class="clear"></div>
 
@@ -105,7 +102,7 @@
 
           <div class="load_more_cont">
 
-              <p align="center"><span class="load_more_text"><?php next_posts_link('LOAD MORE') ?></span></p>
+              <p align="center"><span class="load_more_text"><?php next_posts_link('LOAD MORE', $query_products->max_num_pages) ?></span></p>
 
           </div><!--//load_more_cont-->
 
