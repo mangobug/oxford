@@ -58,7 +58,7 @@
         </div>
         <div class="related-blog-area">
             <div class="container">
-                <h3 class="blog-heading">Related Stories:</h3>
+                <h3 class="blog-heading">Related Stories</h3>
                     <?php get_related_posts_thumbnails(); ?>
             </div>
         </div>

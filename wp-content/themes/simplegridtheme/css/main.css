@@ -6,11 +6,12 @@
 .slogan {
   display: inline-block;
   vertical-align: middle;
-  margin: 26px 0 0 25px;
+  margin: 24px 0 0 25px;
   border-left: 2px solid #3a4a58;
-  font-size: 16px;
+  font-size: 23px;
+  line-height: 19px;
   padding: 0 0 0 30px;
-  font-family: Flama-Medium,Helvetica,Arial,sans-serif;
+  font-family: FlamaBold;
 }
 
 #load_posts_container {
@@ -30,12 +31,12 @@
 .single-blog-area {
   overflow: hidden;
   position: relative;
-  margin: -367px 0 0;
+  margin: -366px 0 0;
 }
 
 .single-blog-area .container {
   background: #fff;
-  padding: 50px 54px;
+  padding: 46px 52px;
 }
 
 .single-blog-area .saboxplugin-wrap {
@@ -65,6 +66,9 @@
 .related-blog-area .blog-heading {
   font-size: 20px;
   margin: 0 0 30px;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-family: Flama-Medium,Helvetica,Arial,sans-serif;
 }
 
 .relpost-block-container .relpost-block-single-image {
@@ -81,6 +85,26 @@
   float: left;
 }
 
+.tag-area {
+  overflow: hidden;
+  font-size: 19px;
+  line-height: 21px;
+  margin: 0 0 31px;
+}
+
+.tag-area .box {
+  display: inline-block;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  margin-right: 3px;
+}
+
+.tag-area span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 @media only screen and (max-width: 1440px) {
   .container {
     width: 1000px;
@@ -93,10 +117,6 @@
 
   #sidebar {
     width: 35%;
-  }
-
-  .blog_left h1 {
-    font-size: 20px;
   }
 
   .post-banner {
@@ -125,10 +145,6 @@
     width: 35%;
   }
 
-  .blog_left h1 {
-    font-size: 20px;
-  }
-
   #menu_container {
     font-size: 12px;
   }
@@ -143,24 +159,38 @@
   }
 
   #menu_container ul li a {
-    margin: 0 0 0 30px;
+    margin: 0 0 0 20px;
   }
 }
 
 #Contributors .head-block {
   overflow: hidden;
-  padding: 60px 0;
+  padding: 95px 0 89px;
 }
 
 #Contributors .head-block h2 {
   font-weight: normal;
+  font-size: 40px;
+  margin: 10px 0 13px;
+  font-family: Flama-Book,Helvetica,Arial,sans-serif;
+}
+
+#Contributors p {
+  font-family: Flama-Book,Helvetica,Arial,sans-serif;
+  margin: 0;
+  line-height: 32px;
+  font-size: 18px;
 }
 
 .Contributors-info {
-  padding: 40px 0;
+  padding: 60px 0;
   border-top: 1px solid #ccc;
   font-style: normal;
   overflow: hidden;
+}
+
+.Contributors-info .container {
+  position: relative;
 }
 
 .Contributors-info .img-box {
@@ -168,7 +198,7 @@
   width: 200px;
   height: 200px;
   border: 1px solid #ccc;
-  margin: 0 20px 0 0;
+  margin: 0 46px 0 0;
 }
 
 .Contributors-info .img-box img {
@@ -179,20 +209,27 @@
 
 .Contributors-info .txt-holder {
   overflow: hidden;
+  min-height: 200px;
 }
 
 .Contributors-info .txt-holder .name {
-  font-size: 20px;
+  font-size: 30px;
   display: block;
   line-height: 22px;
-  margin: 0 0 10px;
+  margin: 0 0 15px;
+  font-family: Flama-Book,Helvetica,Arial,sans-serif;
 }
 
 .Contributors-info .txt-holder .description {
-  font-size: 18px;
+  font-size: 22px;
   display: block;
   line-height: 20px;
   margin: 0 0 10px;
+  font-family: Flama-Book,Helvetica,Arial,sans-serif;
+}
+
+.Contributors-info p {
+  margin: 0 0 30px;
 }
 
 .Contributors-info .txt-holder .btn-more {
@@ -201,4 +238,7 @@
   padding: 12px 35px;
   border: 1px solid #969ea6;
   font-style: normal;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
