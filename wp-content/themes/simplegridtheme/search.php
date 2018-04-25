@@ -26,7 +26,7 @@
 
                's' => get_search_query(),
 
-               'posts_per_page' => 9,
+               'posts_per_page' => 3,
 
                'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1)
 

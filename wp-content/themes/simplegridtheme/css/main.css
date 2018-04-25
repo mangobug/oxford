@@ -127,7 +127,7 @@
 @media only screen and (max-width: 1200px) {
   .single-blog-area .container {
     width: 800px;
-    padding: 50px 20px;
+    padding: 50px 20px 0px;
   }
 }
 
@@ -221,10 +221,11 @@
 }
 
 .Contributors-info .txt-holder .description {
-  font-size: 22px;
+  font-size: 18px;
   display: block;
   line-height: 20px;
   margin: 0 0 10px;
+  padding: 6px 0;
   font-family: Flama-Book,Helvetica,Arial,sans-serif;
 }
 
@@ -241,4 +242,8 @@
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.Contributors-bg {
+  background: #eceff2;
 }

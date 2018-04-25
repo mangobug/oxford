@@ -118,7 +118,7 @@ input[type=text], input[type=email]  { outline: none; }
 
 #menu_container ul li a { display: block; text-decoration: none; padding: 5px 10px; margin: 0 0 0 29px; text-transform: uppercase; }
 
-#menu_container ul li a:hover { background-color: #000; color: #fff; -moz-border-radius: 3px; -webkit-border-radius: 3px; -khtml-border-radius: 3px; border-radius: 3px; }
+#menu_container ul li a:hover { background-color: #ff6600; color: #fff; -moz-border-radius: 3px; -webkit-border-radius: 3px; -khtml-border-radius: 3px; border-radius: 3px; }
 
 //#menu_container ul li.current-menu-item a, #menu_container ul li.current_page_item a { border-bottom: 1px solid #3a4a58; }
 
@@ -181,9 +181,9 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .blog_left { float: left; width: 785px;  font-family: Flama-Medium,Helvetica,Arial,sans-serif; }
 
-.blog_left p { line-height: 32px; margin: 0 0 19px; font-size: 21px; }
+.blog_left p { line-height: 32px; margin: 0 0 19px; font-size: 16px; }
 
-.blog_left h1 { margin-top: 0; margin: 0 0 20px; font-size: 40px; line-height: 45px; }
+.blog_left h1 { margin-top: 0; margin: 0 0 20px; font-size: 35px; line-height: 45px; }
 
 .blog-image { overflow: hidden; }
 
@@ -248,7 +248,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .side_box:nth-child(2n) h3 { font-family: Flama-Medium,Helvetica,Arial,sans-serif; }
 
-.side_box h3 { padding: 5px 0; color: #3a4a58; font-size: 24px; margin: 16px 0 10px 0; font-family: Flama-Book,Helvetica,Arial,sans-serif; font-weight: normal; }
+.side_box h3 { padding: 5px 0; color: #3a4a58; font-size: 18px; margin: 16px 0 10px 0; font-family: Flama-Book,Helvetica,Arial,sans-serif; font-weight: normal; }
 
 .side_box ul { list-style-type: none; padding: 0 10px; }
 
@@ -256,7 +256,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .side_box .textwidget { padding: 0 10px; }
 
-.side_box p { font-size: 19px; line-height: 23px; margin: 0 0 20px; }
+.side_box p { font-size: 16px; line-height: 23px; margin: 0 0 20px; }
 
 .side_box a { color: #000; text-decoration: none; }
 
