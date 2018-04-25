@@ -14,7 +14,6 @@
         <div class="head-block">
             <div class="container">
                 <h2>Contributors Page</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                 <?php
                     wp_reset_query();
                     while ( have_posts() ) : the_post();
@@ -35,8 +34,7 @@
                 } else {
                     $output = '<div class="Contributors-info">';
                 }
-                $output = $output . '
-                            <div class="container">
+                $output .= '<div class="container">
                                 <div class="img-box">' . get_avatar($author->ID) . '</div>
                                 <div class="txt-holder">
                                     <span class="name">' . get_the_author_meta('display_name', $author->ID) . '</span>

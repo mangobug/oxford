@@ -209,7 +209,8 @@
 
 .Contributors-info .txt-holder {
   overflow: hidden;
-  min-height: 200px;
+  min-height: 142px;
+  padding: 0 0 60px;
 }
 
 .Contributors-info .txt-holder .name {
@@ -233,15 +234,20 @@
   margin: 0 0 30px;
 }
 
+.Contributors-info .txt-holder .footer-area {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 .Contributors-info .txt-holder .btn-more {
   float: right;
   font-family: Flama-Medium,Helvetica,Arial,sans-serif;
   padding: 12px 35px;
   border: 1px solid #969ea6;
   font-style: normal;
-  position: absolute;
-  bottom: 0;
-  right: 0;
 }
 
 .Contributors-bg {

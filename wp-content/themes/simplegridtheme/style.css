@@ -207,17 +207,17 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 .post_box_category a { font-size: 10px; font-weight: 100; float: right; color: #FFFFFF; padding: 10px; text-decoration: none; text-transform: uppercase; }
 
 /* Innovation */
-.category_id_innovation { background: linear-gradient(rgba(255, 102, 0, 0.65), rgba(255, 102, 0, 0.65)); height: 100%; }
+.category_id_innovation { background-color: #ff6600; mix-blend-mode: multiply;  height: 100%; }
 /* Customer Experience */
-.category_id_customer_experience { background: linear-gradient(rgba(58, 74, 88, 0.65), rgba(58, 74, 88, 0.65)); height: 100%; }
+.category_id_customer_experience { background-color: #3a4a58; mix-blend-mode: multiply; height: 100%; }
 /* sustainability */
-.category_id_sustainability { background: linear-gradient(rgba(51, 153, 0, 0.65), rgba(51, 153, 0, 0.65)); height: 100%; }
+.category_id_sustainability { background-color: #339900; mix-blend-mode: multiply; height: 100%; }
 /* Leadership */
-.category_id_leadership { background: linear-gradient(rgba(102, 0, 153, 0.65), rgba(102, 0, 153, 0.65)); height: 100%; }
+.category_id_leadership { background-color: #660099; mix-blend-mode: multiply; height: 100%; }
 /* Operations */
-.category_id_operations { background: linear-gradient(rgba(8, 96, 191, 0.65), rgba(8, 96, 191, 0.65)); height: 100%; }
+.category_id_operations { background-color: #0860bf; mix-blend-mode: multiply; height: 100%; }
 /* Global Ideas */
-.category_id_global_ideas { background: linear-gradient(rgba(209, 141, 9, 0.65), rgba(209, 141, 9, 0.65)); height: 100%; }
+.category_id_global_ideas { background-color: #d18d09; mix-blend-mode: multiply; height: 100%; }
 
 .search_column { float: left; }
 .arrow { width: 40px!important; height: 40px!important; float: right; }
