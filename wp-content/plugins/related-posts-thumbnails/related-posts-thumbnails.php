@@ -634,8 +634,9 @@ private function review_dismissal() {
 				$cat_name = str_replace(" ", "_", $categories[0]->cat_name);
 				$output .= '<div class="home_post_box">
   										<div class="post_box_category category_id_' . strtolower($cat_name) . '">
-    										' . get_the_category_list(', ') . '
   										</div>
+    									<div class="top-link">' . get_the_category_list(', ') . '</div>
+
   										<a href="' . get_permalink( $post->ID ) . '">
     									' . get_the_post_thumbnail($post, 'home-post', array('alt' => 'post image', 'class' => 'rounded')) . '
   										</a>

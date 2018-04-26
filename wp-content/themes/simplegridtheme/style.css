@@ -151,6 +151,19 @@ input[type=text], input[type=email]  { outline: none; }
 
 box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
+.home_post_box .top-link a {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 10px;
+	font-weight: 100;
+	float: right;
+	color: #FFFFFF;
+	padding: 10px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
 .home_blog_box_last { margin-right: 0 !important; }
 
 .home_post_box img { width: 321px; height: 209px; }
