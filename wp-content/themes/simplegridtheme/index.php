@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-        <div id="load_posts_container" class="grid container">
+        <div id="load_posts_container" class="container">
 
 
 

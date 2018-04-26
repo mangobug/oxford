@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-        <div class="container">
+        <div id="load_posts_container" class="container">
 
           <div class="row results_search_form">
 
@@ -26,7 +26,7 @@
 
                's' => get_search_query(),
 
-               'posts_per_page' => 3,
+               'posts_per_page' => 9,
 
                'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1)
 
@@ -101,13 +101,14 @@
                   <div class="clear"></div>
 
               </div><!--//load_posts_container-->
-
-              <div class="container">
-                <div class="load_more_cont">
-                    <p align="center"><span class="load_more_text"><?php next_posts_link('LOAD MORE', $query_products->max_num_pages) ?></span></p>
-                </div><!--//load_more_cont-->
-                <div class="clear"></div>
-              </div>
+              <?php if ($query_products->max_num_pages > 1) { ?>
+                <div class="container">
+                  <div class="load_more_cont">
+                      <p align="center"><span class="load_more_text"><?php next_posts_link('LOAD MORE', $query_products->max_num_pages) ?></span></p>
+                  </div><!--//load_more_cont-->
+                  <div class="clear"></div>
+                </div>
+              <?php } ?>
             <?php } else { ?>
               <p>No search results found.</p>
             <?php } ?>

@@ -181,7 +181,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .blog_left { float: left; width: 785px;  font-family: Flama-Medium,Helvetica,Arial,sans-serif; }
 
-.blog_left p { line-height: 32px; margin: 0 0 19px; font-size: 16px; }
+.blog_left p { line-height: 1.5; margin: 0 0 19px; font-size: 18px; }
 
 .blog_left h1 { margin-top: 0; margin: 0 0 20px; font-size: 35px; line-height: 45px; }
 
@@ -197,7 +197,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .home_post_box_last { margin-right: 0; }
 
-.page-title { text-transform: uppercase; margin-bottom: 25px; }
+.page-title { text-transform: uppercase; margin-bottom: 35px; }
 
 
 #commentform input[type=submit] { background-color: #333; border: none; color: #fff; padding: 8px 10px; }
@@ -260,12 +260,27 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .side_box a { color: #000; text-decoration: none; }
 
-.side_box .btn-more { font-family: Flama-Medium,Helvetica,Arial,sans-serif; padding: 14px 35px; display: inline-block; vertical-align: top; margin: 0 0 16px; border: 1px solid #969ea6; font-size: 14px; color: #3a4a58; text-transform: uppercase; }
+.side_box .btn-more { font-family: Flama-Medium,Helvetica,Arial,sans-serif; padding: 12px 35px; display: inline-block; vertical-align: top; margin: 0 0 16px; border: 1px solid #969ea6; font-size: 14px; color: #3a4a58; text-transform: uppercase; }
 
 .side_box a:hover { text-decoration: underline; }
 
 .side_box .avatar { width: 115px; height: 115px; }
 
+/* Authors page */
+
+.author_page_left { width: 25%; }
+
+.author_page_left .img-box { float: left; width: 200px; height: 200px; border: 1px solid #ccc; margin: 0 46px 0 0; }
+
+.author_page_left .img-box img { display: block; width: 100%; height: auto; }
+
+.author_page_right { margin-bottom: 25px; width: 75%; font-size: 18px; }
+
+.author_page_right p { line-height: 1.5; }
+
+#author_more_posts { padding: 0; }
+
+.author_more_posts_heading { padding-bottom: 25px; text-transform: uppercase; }
 
 /* Footer */
 
@@ -312,6 +327,8 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 
 .blog_left .left_content img { float: left; margin: 11px 34px 0 0; width: 49.5%; height: 242px; display: block; }
+
+div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 /* for mobile */
 

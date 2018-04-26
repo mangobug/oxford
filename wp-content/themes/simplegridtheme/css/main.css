@@ -32,6 +32,7 @@
   overflow: hidden;
   position: relative;
   margin: -366px 0 0;
+  min-height: 400px;
 }
 
 .single-blog-area .container {
@@ -77,7 +78,7 @@
 }
 
 .side_box .sfsi_wicons {
-  margin: 0 20px 0 0 !important;
+  margin: 0 18px 0 0 !important;
 }
 
 .social-area .social_icons,
@@ -111,12 +112,12 @@
   }
 
   .blog_left {
-    width: 60%;
+    width: 65%;
     font-size: 16px;
   }
 
   #sidebar {
-    width: 35%;
+    width: 30%;
   }
 
   .post-banner {
@@ -165,7 +166,7 @@
 
 #Contributors .head-block {
   overflow: hidden;
-  padding: 95px 0 89px;
+  padding: 60px 0 89px;
 }
 
 #Contributors .head-block h2 {
