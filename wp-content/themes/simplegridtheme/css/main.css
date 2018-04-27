@@ -212,6 +212,7 @@
   overflow: hidden;
   min-height: 142px;
   padding: 0 0 60px;
+  position: relative;
 }
 
 .Contributors-info .txt-holder .name {
@@ -241,6 +242,15 @@
   bottom: 0;
   right: 0;
   left: 0;
+}
+
+.Contributors-info .txt-holder .footer-area .social-icons a {
+  margin-right: 12px;
+}
+
+.Contributors-info .txt-holder .footer-area .social-icons a img {
+  width: 35px;
+  height: 35px;
 }
 
 .Contributors-info .txt-holder .btn-more {

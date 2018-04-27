@@ -162,13 +162,14 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 	padding: 10px;
 	text-decoration: none;
 	text-transform: uppercase;
+	z-index: 10;
 }
 
 .home_blog_box_last { margin-right: 0 !important; }
 
-.home_post_box img { width: 321px; height: 209px; }
+.home_post_box img { width: 321px; height: 209px; -webkit-filter: grayscale(100%); filter: grayscale(100%); }
 
-.home_post_title_cont { position: absolute; bottom: 0px; width: 287px; padding-left: 14px; }
+.home_post_title_cont { position: absolute; bottom: 0px; width: 287px; padding-left: 14px; z-index: 10; }
 
 .home_post_title_cont .heading { color: #fff; font-size: 28px; line-height: 1; font-family: Flama,Helvetica,Arial,sans-serif; }
 .home_post_title_cont p { font-size: 12px; line-height: normal; }
@@ -216,7 +217,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 #commentform input[type=submit] { background-color: #333; border: none; color: #fff; padding: 8px 10px; }
 
 
-.post_box_category { position: absolute; width: 100%; }
+.post_box_category { position: absolute; width: 100%; z-index: 9; }
 .post_box_category a { font-size: 10px; font-weight: 100; float: right; color: #FFFFFF; padding: 10px; text-decoration: none; text-transform: uppercase; }
 
 /* Innovation */

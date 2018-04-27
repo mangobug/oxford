@@ -44,6 +44,12 @@
                                     <p>' . get_the_author_meta('description', $author->ID) . '</p>
                                     <div class="clear"></div>
                                     <div class="footer-area">
+                                        <span class="social-icons">
+                                            <a href="'. get_field( 'linkedin', $author ) .'" target="_blank"><img src="' . get_bloginfo('stylesheet_directory') . '/images/linked.png"/></a>
+                                            <a href="'. get_field( 'twitter', $author ) .'" target="_blank"><img src="' . get_bloginfo('stylesheet_directory') . '/images/twitter.png" /></a>
+                                            <a href="'. get_field( 'facebook', $author ) .'" target="_blank"><img src="' . get_bloginfo('stylesheet_directory') . '/images/fb.png" /></a>
+                                            <a href="mailto:'. get_the_author_meta('email', $author->ID) .'" target="_blank"><img src="' . get_bloginfo('stylesheet_directory') . '/images/mail.png" /></a>
+                                        </span>
                                         <a class="btn-more" href="' . get_author_posts_url( $author->ID, $author->user_nicename ) . '">READ MORE</a>
                                     </div>
                                 </div>
