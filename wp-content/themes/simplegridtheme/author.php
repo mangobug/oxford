@@ -4,9 +4,8 @@
     $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
   ?>
 
-  <div class="post-banner">
-      <?php $image = get_field( 'featured_image', $curauth ); ?>
-      <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+  <div class="post-banner" style="background-image: url('<?php $image = get_field( 'featured_image', $curauth ); echo $image['url']; ?>') " alt="<?php echo $image['alt']; ?> ">
+
   </div>
 
 
@@ -16,7 +15,16 @@
           <div class="author_page_left left">
 
             <div class="img-box"><?php echo get_avatar( $curauth->ID ); ?></div>
-            <div>Social links</div>
+            <div class="clear"></div>
+            <div class="author_social">
+                <h3>FOLLOW</h3>
+                <span class="social-icons">
+                    <a href=<?php echo get_field( 'linkedin', $curauth ); ?> target="_blank"><img src=<?php echo get_bloginfo('stylesheet_directory') . '/images/linked.png' ?> /></a>
+                    <a href=<?php echo get_field( 'twitter', $curauth ); ?> target="_blank"><img src=<?php echo get_bloginfo('stylesheet_directory') . '/images/twitter.png' ?> /></a>
+                    <a href=<?php echo get_field( 'facebook', $curauth ); ?> target="_blank"><img src=<?php echo get_bloginfo('stylesheet_directory') . '/images/fb.png' ?> /></a>
+                    <a href="mailto:<?php echo get_the_author_meta('email', $curauth->ID); ?>" target="_blank"><img src=<?php echo get_bloginfo('stylesheet_directory') . '/images/mail.png' ?> /></a>
+                </span>
+            </div>
           </div><!--//author_page_left-->
 
           <div class="author_page_right right">

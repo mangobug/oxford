@@ -1,8 +1,7 @@
 <?php get_header(); ?>
 
-    <div class="post-banner">
-        <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
-        <img src="<?php echo $url ?>" />
+    <div class="post-banner" style="background-image: url('<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); echo $url; ?>')">
+  
     </div>
 
         <div class="single-blog-area">

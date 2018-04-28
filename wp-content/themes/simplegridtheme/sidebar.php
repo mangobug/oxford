@@ -13,7 +13,7 @@
                   <h3 class="author">
                     <?php the_author(); ?>
                   </h3>
-                  <p><?php $authorDesc = the_author_meta('description'); echo $authorDesc; ?></p>
+                  <p><?php $authorDesc = the_author_meta('biography_summary'); echo $authorDesc; ?></p>
 
                   <a class="btn-more" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta('user_nicename') ); ?>">read more</a>
 
