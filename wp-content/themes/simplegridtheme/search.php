@@ -65,8 +65,8 @@
                         $cat_name = str_replace(" ", "_", $categories[0]->cat_name); ?>
 
                       <div class="post_box_category category_id_<?php echo strtolower($cat_name); ?>">
-                        <?php the_category(', '); ?>
                       </div>
+                      <div class="top-link"><a href="javascript:void();" rel="category tag"><?php the_category(', '); ?></a></div>
 
                       <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('home-post',array('alt' => 'post image', 'class' => 'rounded')); ?></a>
 
