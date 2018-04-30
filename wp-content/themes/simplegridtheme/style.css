@@ -262,7 +262,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .side_box:nth-child(2n) h3 { font-family: Flama-Medium,Helvetica,Arial,sans-serif; }
 
-.side_box h3 { padding: 5px 0; color: #3a4a58; font-size: 18px; margin: 16px 0 10px 0; font-family: Flama-Book,Helvetica,Arial,sans-serif; font-weight: normal; }
+.side_box h3 { padding: 5px 0; color: #3a4a58; font-size: 18px; margin: 16px 0 10px 0; font-family: Flama-Medium,Helvetica,Arial,sans-serif; font-weight: normal; }
 
 .side_box ul { list-style-type: none; padding: 0 10px; }
 
@@ -279,6 +279,8 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 .side_box a:hover { text-decoration: underline; }
 
 .side_box .avatar { width: 115px; height: 115px; }
+
+.heateor_sss_sharing_ul li i { margin: 0; margin-right: 15px; }
 
 /* Authors page */
 

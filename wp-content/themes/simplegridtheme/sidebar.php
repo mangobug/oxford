@@ -17,11 +17,16 @@
 
                   <a class="btn-more" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta('user_nicename') ); ?>">read more</a>
 
+                  <h3>SHARE</h3>
+                  <?php echo do_shortcode("[Sassy_Social_Share]"); ?>
                 </div><!--//side_box-->
 
 
                 <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Sidebar') ) : ?>
                   <?php dynamic_sidebar( 'Sidebar' ); ?>
                 <?php endif; ?>
+
+
+
 
         </div><!--//sidebar-->
