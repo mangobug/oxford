@@ -2,11 +2,9 @@
 
         <div id="load_posts_container" class="container">
 
-
-
         <?php
 
-        $category_ID = get_category_id('blog');
+        $category_ID = get_query_var('cat') ? get_query_var('cat') : get_category_id('blog');
 
         $args = array(
 
@@ -44,11 +42,11 @@
 
             <?php if($x == 2) { ?>
 
-            <div class="home_post_box home_post_box_last">
+            <div class="home_post_box home_post_box_last <?php echo strtolower($cat_name) ?>">
 
             <?php } else { ?>
 
-            <div class="home_post_box">
+            <div class="home_post_box <?php echo strtolower($cat_name) ?>">
 
             <?php } ?>
 
@@ -128,7 +126,19 @@
 
 <script type="text/javascript">
 
-// Ajax-fetching "Load more posts"
+  var $grid = $('#load_posts_container').isotope({
+    itemSelector: '.home_post_box',
+    layoutMode: 'fitRows'
+  });
+
+  $('.menu-item').on('click', function(e) {
+    e.preventDefault();
+    var $ = jQuery.noConflict();
+    $('.menu-item').removeClass('active');
+    $(e.target).parent('li').addClass('active');
+    var filterValue = '.' + $(this).find('a').text().toLowerCase().replace(" ", "_");
+    $grid.isotope({ filter: filterValue });
+  });
 
 $('.load_more_cont a').live('click', function(e) {
 
@@ -158,14 +168,11 @@ $('.load_more_cont a').live('click', function(e) {
 
 			//$('#boxes').append(result).masonry('appended', result);
 
-                    $('#load_posts_container').append(result);
+      $grid.isotope('insert', result);
 
 			//$('.fetch a').removeClass('loading').text('Load more posts');
 
                         //$('.load_more_text a').html('Load More');
-
-
-
 
 
 			if (nextlink != undefined) {
@@ -203,8 +210,6 @@ $('.load_more_cont a').live('click', function(e) {
                         });
 
                     }
-
-
 
 		}
 

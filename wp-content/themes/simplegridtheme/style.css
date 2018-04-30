@@ -125,6 +125,8 @@ input[type=text], input[type=email]  { outline: none; }
 .cat_menu { list-style-type: none; columns: 2; -webkit-columns: 2; -moz-columns: 2; text-transform: uppercase; }
 
 .cat_menu li { padding-bottom: 10px; }
+.cat_menu li.active a { font-weight: bold; text-decoration: underline; }
+
 .search_blurb { color: #ff6600; }
 //.row-2 { margin-bottom: 15px; }
 
@@ -209,7 +211,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .blog_nav_cont a:hover { text-decoration: underline; }
 
-.home_post_box_last { margin-right: 0; }
+.home_post_box_last {  }
 
 .page-title { text-transform: uppercase; margin-bottom: 35px; }
 
@@ -464,7 +466,7 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 .home_post_box img { width: 346px; height: 219px; }
 
-.home_post_box_last { margin-right: 9px; }
+.home_post_box_last {  }
 
 
 

@@ -23,6 +23,7 @@
 
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>-->
 
+  <script src="<?php bloginfo('stylesheet_directory'); ?>/js/isotope.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="<?php bloginfo('stylesheet_directory'); ?>/js/main.js" type="text/javascript" charset="utf-8"></script>
 
   <script type="text/javascript">
