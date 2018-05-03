@@ -40,15 +40,8 @@
               $cat_name = str_replace(" ", "_", $categories[0]->cat_name);
             ?>
 
-            <?php if($x == 2) { ?>
-
-            <div class="home_post_box home_post_box_last <?php echo strtolower($cat_name) ?>">
-
-            <?php } else { ?>
 
             <div class="home_post_box <?php echo strtolower($cat_name) ?>">
-
-            <?php } ?>
 
 
                 <div class="post_box_category category_id_<?php echo strtolower($cat_name); ?>">

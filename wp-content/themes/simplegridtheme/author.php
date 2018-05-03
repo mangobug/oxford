@@ -78,11 +78,11 @@
 
                 <?php if($x == 2) { ?>
 
-                <div class="home_post_box home_post_box_last">
+                <div class="home_post_box author-related-box home_post_box_last">
 
                 <?php } else { ?>
 
-                <div class="home_post_box">
+                <div class="home_post_box author-related-box">
 
                 <?php } ?>
 
