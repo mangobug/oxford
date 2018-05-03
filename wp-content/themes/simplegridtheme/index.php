@@ -4,19 +4,19 @@
 
         <?php
 
-        $category_ID = get_query_var('cat') ? get_query_var('cat') : get_category_id('blog');
-
         $args = array(
 
                      'post_type' => 'post',
 
                      'posts_per_page' => 6,
 
-                     'cat' => '-' . $category_ID,
-
                      'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1)
 
                      );
+
+        if ( isset($_GET['category']) ) {
+          $args['category_name'] = $_GET['category'];
+        }
 
         query_posts($args);
         $query_products = new WP_Query($args);
@@ -123,7 +123,6 @@
 
         </div>
 
-
 <script type="text/javascript">
 
   var $grid = $('#load_posts_container').isotope({
@@ -131,13 +130,41 @@
     layoutMode: 'fitRows'
   });
 
-  $('.menu-item').on('click', function(e) {
+  $('.cat_menu .menu-item').on('click', function(e) {
     e.preventDefault();
     var $ = jQuery.noConflict();
-    $('.menu-item').removeClass('active');
+    $('.cat_menu .menu-item').removeClass('active');
     $(e.target).parent('li').addClass('active');
-    var filterValue = '.' + $(this).find('a').text().toLowerCase().replace(" ", "_");
-    $grid.isotope({ filter: filterValue });
+    anchor = $(this).find('a');
+    filterValue = anchor.text().toLowerCase().replace(" ", "-");
+    main_url = anchor.attr('href').split('?cat=')[0];
+    $.ajax({
+      type: "GET",
+      url: main_url,
+      data: { category: filterValue },
+      dataType: "html",
+      success: function(out) {
+        result = $(out).find('#load_posts_container .home_post_box');
+        nextlink = $(out).find('.load_more_cont a').attr('href');
+
+        $grid.isotope('remove', $('#load_posts_container .home_post_box'))
+             .isotope( 'insert', result );
+
+        if (nextlink != undefined) {
+          $('.load_more_cont a').attr('href', nextlink);
+        } else {
+          $('.load_more_cont').remove();
+          $('#load_posts_container').append('<div class="clear"></div>');
+        }
+        if (nextlink != undefined) {
+          $.get(nextlink, function(data) {
+            if($(data + ":contains('home_post_box')") != '') {
+              $('#load_posts_container').append('<div class="clear"></div>');
+            }
+          });
+        }
+      }
+    });
   });
 
 $('.load_more_cont a').live('click', function(e) {
