@@ -128,9 +128,8 @@
     var $ = jQuery.noConflict();
     $('.cat_menu .menu-item').removeClass('active');
     $(e.target).parent('li').addClass('active');
-    anchor = $(this).find('a');
-    filterValue = anchor.text().toLowerCase().replace(" ", "-");
-    main_url = anchor.attr('href').split('?cat=')[0];
+    filterValue = $(this).find('a').text().toLowerCase().replace(" ", "-");
+    main_url = "<?php echo get_site_url() ?>";
     $.ajax({
       type: "GET",
       url: main_url,
