@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
     <div class="post-banner" style="background-image: url('<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); echo $url; ?>')">
-  
+
     </div>
 
         <div class="single-blog-area">
@@ -22,6 +22,16 @@
                         <?php the_content(); ?>
 
 
+                        <?php
+                          $tags = wp_get_post_tags(get_the_ID());
+                          if($tags) {
+                            echo '<p>Tags: ';
+                            foreach ($tags as $tag) {
+                              echo $tag->name . ' ';
+                            }
+                            echo '</p>';
+                          }
+                        ?>
 
                         </div><!--//left_content-->
 
