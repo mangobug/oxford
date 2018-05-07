@@ -286,6 +286,11 @@
   font-style: normal;
 }
 
+.Contributors-info .txt-holder .btn-more:hover {
+  background-color: #3a4a58;
+  color: #ffffff;
+}
+
 .Contributors-bg {
   background: #eceff2;
 }

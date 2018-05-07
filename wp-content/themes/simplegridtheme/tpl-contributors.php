@@ -41,10 +41,10 @@
                                 <div class="txt-holder">
                                     <span class="name">' . get_the_author_meta('display_name', $author->ID) . '</span>
                                     <span class="description">' . get_field( 'job_title', $author ) . '</span>
-                                    <p>' . get_field( 'biography_summary', $author ) . '</p>
+                                    <p class="biography_summary">' . get_field( 'biography_summary', $author ) . '</p>
                                     <div class="clear"></div>
                                     <div class="footer-area">
-                                        <p><strong>FOLLOW</strong></p>
+                                        <p class="footer-heading"><strong>FOLLOW</strong></p>
                                         <span class="social-icons">
                                             <a href="'. get_field( 'linkedin', $author ) .'" target="_blank"><img src="' . get_bloginfo('stylesheet_directory') . '/images/linked.png"/></a>
                                             <a href="'. get_field( 'twitter', $author ) .'" target="_blank"><img src="' . get_bloginfo('stylesheet_directory') . '/images/twitter.png" /></a>
@@ -63,3 +63,5 @@
     </div>
 
 <?php get_footer(); ?>
+
+<?php get_footer('mobile'); ?>

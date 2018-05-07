@@ -9,6 +9,15 @@
 
                 <div class="blog_left">
 
+                  <div class="mobile-tag-area">
+                    <?php
+                        $categories = get_the_category();
+                        $cat_name = str_replace(" ", "_", $categories[0]->cat_name);
+                    ?>
+                    <div class="box category_id_<?php echo strtolower($cat_name) ?>"></div>
+                    <span><?php echo $categories[0]->cat_name ?></span>
+                  </div>
+
                     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 
@@ -57,7 +66,6 @@
                 </div><!--//blog_left-->
 
 
-
                 <?php get_sidebar(); ?>
 
 
@@ -75,3 +83,5 @@
 
 
 <?php get_footer(); ?>
+
+<?php get_footer('mobile'); ?>

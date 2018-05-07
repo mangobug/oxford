@@ -238,4 +238,7 @@ $('.load_more_cont a').live('click', function(e) {
 
 </script>
 
+
 <?php get_footer(); ?>
+
+<?php get_footer('mobile'); ?>
