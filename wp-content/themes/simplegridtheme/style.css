@@ -87,6 +87,8 @@ input[type=text], input[type=email]  { outline: none; }
 
 .mobile-only { display: none!important; }
 
+.desktop-only { display: block!important; }
+
 /* Header */
 
 #header { padding: 14px 0 0px;  margin: 0; background-color: #eceff2;}
@@ -431,6 +433,8 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 	.mobile-only { display: block!important; }
 
+	.desktop-only { display: none!important; }
+
 	#content_container { width: 320px; }
 
 	.featured_banner { display: none; }
@@ -478,6 +482,8 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 	.footer_widgets_cont p { font-size: 17px; }
 
 	.footer_box_first { width: 93%; margin-left: 18px; }
+
+	.footer_box_last { border-left: none; }
 
 	.wpcf7-email { padding: 12px; width: 93%; }
 
@@ -549,6 +555,16 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 	}
 
 	.related-blog-area { padding: 20px!important; }
+
+	/* Author's Page */
+
+	.author_page_left .img-box { width: 150px; height: 150px; }
+
+	.author_page_right { width: 53%!important; }
+
+	.author_description { font-size: 18px; line-height: 1.5; width: 96%; }
+
+	.author-page .container { width: 95%!important; padding: 20px 23px!important; }
 }
 
 
@@ -566,6 +582,11 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 #header { padding: 10px 0px; }
 
+#column-1 { width: 39%; }
+
+#column-2 { width: 60%; }
+
+.cat_menu li { font-size: 12px; }
 
 
 #menu_container { padding: 0px 0px; }
@@ -590,6 +611,7 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 .home_post_box img { width: 346px; height: 219px; }
 
+.home_post_box_last { margin-right: 30px!important; }
 
 
 .blog_box_cont .home_post_box { margin-left: 0; }
@@ -602,7 +624,7 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 
 
-.home_post_title_cont { width: 333px; }
+.home_post_title_cont { width: 287px; }
 
 .home_post_desc { width: 251px; left: 40px; }
 
@@ -617,6 +639,11 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 
 .footer_widgets_cont { padding: 0 0px 0 0px; }
+
+
+.author_page_right { width: 63%; }
+
+.author_page_left { width: 28%; }
 
 
 

@@ -9,14 +9,14 @@
   </div>
 
 
-  <div class="single-blog-area">
+  <div class="single-blog-area author-page">
       <div class="container">
 
           <div class="author_page_left left">
 
             <div class="img-box"><?php echo get_avatar( $curauth->ID ); ?></div>
             <div class="clear"></div>
-            <div class="author_social">
+            <div class="author_social desktop-only">
                 <h3>FOLLOW</h3>
                 <span class="social-icons">
                     <a href=<?php echo get_field( 'linkedin', $curauth ); ?> target="_blank"><img src=<?php echo get_bloginfo('stylesheet_directory') . '/images/linked.png' ?> /></a>
@@ -31,11 +31,23 @@
 
               <h1><?php echo $curauth->display_name; ?></h1>
               <p><?php echo $curauth->job_title; ?></p>
-              <p><?php echo $curauth->user_description; ?></p>
+              <div class="desktop-only"><?php echo get_the_author_meta('biography', $curauth->ID); ?></div>
 
           </div><!--//autho_page_right-->
 
           <div class="clear"></div>
+      </div>
+      <div class="container">
+        <div class="mobile-only author_description"><?php echo get_the_author_meta('biography', $curauth->ID); ?></div>
+        <div class="author_social mobile-only">
+            <h3>FOLLOW</h3>
+            <span class="social-icons">
+                <a href=<?php echo get_field( 'linkedin', $curauth ); ?> target="_blank"><img src=<?php echo get_bloginfo('stylesheet_directory') . '/images/linked.png' ?> /></a>
+                <a href=<?php echo get_field( 'twitter', $curauth ); ?> target="_blank"><img src=<?php echo get_bloginfo('stylesheet_directory') . '/images/twitter.png' ?> /></a>
+                <a href=<?php echo get_field( 'facebook', $curauth ); ?> target="_blank"><img src=<?php echo get_bloginfo('stylesheet_directory') . '/images/fb.png' ?> /></a>
+                <a href="mailto:<?php echo get_the_author_meta('email', $curauth->ID); ?>" target="_blank"><img src=<?php echo get_bloginfo('stylesheet_directory') . '/images/mail.png' ?> /></a>
+            </span>
+        </div>
       </div>
     </div>
 
