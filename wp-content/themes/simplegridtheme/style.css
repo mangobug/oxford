@@ -59,6 +59,8 @@ Tags: 4 column theme, clean, portfolio
 
 * { margin: 0; padding: 0; }
 
+html { margin-top: 0 !important; }
+
 html, body { overflow-x: hidden; }
 body { font-size: 13px; font-family: Flama-Book,Helvetica,Arial,sans-serif; color: #3a4a58; line-height: normal; }
 
@@ -397,33 +399,7 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 	.container { width: 100% !important; }
 
-	.container #column-1 { display: none; }
-
-	#menu_container { display: none; }
-
-	#header { padding: 1px 0 0; }
-
-	#header .row { padding-bottom: 22px; margin-right: 15px; }
-
 	.logo { float: none; max-width: 120px; margin: 0 auto; }
-
-	.search_cont { display: none; }
-
-	.slogan { font-size: 20px!important; line-height: 16px!important; margin-top: -20px !important; }
-
-	#column-2 { background-color: #FFF; padding-bottom: 0; padding-left: 22px; }
-
-	#column-2 h3 { margin-bottom: 8px; font-size: 21px; }
-
-	#column-2 p { line-height: 1.2; font-size: 18px; }
-
-	#menu_container { padding: 0px 0px; width: 320px; margin: 0 auto; }
-
-	#menu_container ul { list-style-type: none; width: 150px; }
-
-	#menu_container ul li { float: none; }
-
-	#menu_container ul li a { padding: 5px 10px; margin: 0 0px 5px; }
 
 	#menu_container .cat_menu { border-left: none; float: right; }
 
@@ -446,11 +422,6 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 	.blog_box_cont { width: 300px; float: none; margin: 0 auto; }
 
 	.blog_content { float: none; width: 300px; margin-left: auto; margin-right: auto; }
-
-
-	.home_post_box { width: 336px!important; position: relative!important; float: none!important; top: 0!important; margin: 0 auto 25px!important; }
-
-	.home_post_box img { width: 300px; height: 290px; }
 
 
 	.home_post_title_cont { width: 96%; }
@@ -487,6 +458,7 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 	.wpcf7-email { padding: 12px; width: 93%; }
 
+
 	.wpcf7-submit { padding: 8px 26px; }
 
 	#wpcf7-f84-o2 .wpcf7-form p:nth-child(3) { text-align: center; }
@@ -499,21 +471,13 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 	/* Contributors page */
 
-	.head-block { padding: 60px 30px!important; }
-
 	.head-block h2 { margin-bottom: 25px!important; }
 
 	.Contributors-info { padding: 30px 0!important; }
 
-	.Contributors-info .container { width: 89%!important; }
-
-	.Contributors-info .biography_summary, .Contributors-info .footer-area .social-icons, .Contributors-info .footer-area .footer-heading  { display: none; }
-
-	.Contributors-info .img-box { width: 150px!important; height: 150px!important; margin-right: 10px!important; }
+	.Contributors-info .biography_summary  { display: none; }
 
 	.Contributors-info .txt-holder .footer-area { top: 31px!important; }
-
-	.Contributors-info .txt-holder .btn-more { float: left!important; }
 
 	.Contributors-info .txt-holder .name { font-size: 25px!important; }
 
@@ -624,7 +588,7 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 
 
-.home_post_title_cont { width: 287px; }
+.home_post_title_cont { width: 100%; }
 
 .home_post_desc { width: 251px; left: 40px; }
 

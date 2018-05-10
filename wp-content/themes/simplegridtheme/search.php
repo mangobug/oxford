@@ -1,4 +1,5 @@
-<?php get_header(); ?>
+<?php get_header(); ?>
+
 
         <div id="load_posts_container" class="container">
 
@@ -18,7 +19,8 @@
 
           <h1 class="page-title"><?php printf( __( 'Explore Ideas About %s', '' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 
-            <?php            
+            <?php
+
 
             $args = array(
 
@@ -118,7 +120,7 @@
         <script type="text/javascript">
 
         // Ajax-fetching "Load more posts"
-
+        var $ = jQuery.noConflict();
         $('.load_more_cont a').live('click', function(e) {
 
         	e.preventDefault();
@@ -202,7 +204,8 @@
         });
 
         </script>
-        
+
+
 <?php get_footer(); ?>
 
 <?php get_footer('mobile'); ?>

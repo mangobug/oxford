@@ -42,6 +42,14 @@
 
   }
 
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "100%";
+  }
+
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
+
   </script>
 
 </head>
@@ -62,6 +70,44 @@
 
 
       <div class="row">
+        <div id="mobile-menu">
+          <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div id="menu_container">
+              <?php wp_nav_menu('menu=Main Menu&container=false&menu_class=pages_menu'); ?>
+              <div class="clear"></div>
+            </div><!--//menu_container-->
+            <div class="search-area">
+              <div class="search_cont">
+
+                <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+
+                  <input type="text" name="s" id="s" placeholder="Search">
+
+                  <INPUT type="submit" class="search_button" value="Search">
+
+                </form>
+
+              </div>
+              <div class="search_column" id="column-1">
+
+                <h4>EXPLORE IDEAS ABOUT:</h4>
+
+                <?php wp_nav_menu('menu=category_menu&container=false&menu_class=cat_menu'); ?>
+              </div>
+            </div>
+            <div class="footer-area">
+              <p class="footer-heading"><strong>FOLLOW US</strong></p>
+              <span class="social-icons">
+                <a href="#" target="_blank"><img src="<?php echo get_bloginfo('stylesheet_directory'); ?>/images/linked.png"></a>
+                <a href="#" target="_blank"><img src="<?php echo get_bloginfo('stylesheet_directory'); ?>/images/twitter.png"></a>
+                <a href="#" target="_blank"><img src="<?php echo get_bloginfo('stylesheet_directory'); ?>/images/fb.png"></a>
+                <a href="#" target="_blank"><img src="<?php echo get_bloginfo('stylesheet_directory'); ?>/images/mail.png"></a>
+              </span>
+          </div>
+          </div>
+        </div>
         <?php if(get_option($shortname.'_custom_logo_url','') != "") { ?>
 
           <a href="<?php bloginfo('url'); ?>"><img src="<?php echo stripslashes(stripslashes(get_option($shortname.'_custom_logo_url',''))); ?>" class="logo" /></a>

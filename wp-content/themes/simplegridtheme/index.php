@@ -118,6 +118,7 @@
 
 <script type="text/javascript">
 
+  var $ = jQuery.noConflict();
   var $grid = $('#load_posts_container').isotope({
     itemSelector: '.home_post_box',
     layoutMode: 'fitRows'
