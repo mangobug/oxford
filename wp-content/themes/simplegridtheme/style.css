@@ -286,7 +286,6 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 .results_search_form { margin: 45px auto 15px auto; position: relative; left: 25%; }
 .results_search_form input[type=text] { font-size: 16px; font-family: Flama-Book,Helvetica,Arial,sans-serif; color: #3a4a58; width: 334px; height: 23px; border: none; border-bottom: 1px solid #3a4a58; padding-left: 20px; }
 
-.page-title span { color: #ff6600; }
 
 /* Sidebar */
 
@@ -308,7 +307,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .side_box a { color: #000; text-decoration: none; }
 
-.side_box .btn-more { font-family: Flama-Medium,Helvetica,Arial,sans-serif; padding: 12px 35px; display: inline-block; vertical-align: top; margin: 0 0 16px; border: 1px solid #969ea6; font-size: 14px; color: #3a4a58; text-transform: uppercase; }
+.side_box .btn-more { font-family: Flama-Medium,Helvetica,Arial,sans-serif; padding: 12px 35px; display: block; max-width: 160px; margin: 0 0 16px; border: 1px solid #969ea6; font-size: 14px; color: #3a4a58; text-transform: uppercase; }
 
 .side_box .btn-more:hover { background-color: #3a4a58; color: #ffffff; }
 
@@ -403,10 +402,6 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 	#menu_container .cat_menu { border-left: none; float: right; }
 
-	h1 { font-size: 28px!important; }
-
-	h2 { font-size: 32px!important; }
-
 	.mobile-only { display: block!important; }
 
 	.desktop-only { display: none!important; }
@@ -424,21 +419,21 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 	.blog_content { float: none; width: 300px; margin-left: auto; margin-right: auto; }
 
 
-	.home_post_title_cont { width: 96%; }
+	.home_post_title_cont { width: 100%; }
 
 	.home_post_title_cont .heading { font-size: 26px; }
 
 	.home_post_desc { width: 200px; left: 35px; }
 
-	.homepage_blurb { width: auto; padding: 10px 20px; }
+	.homepage_blurb { width: auto; padding: 0; }
 
 	.homepage_blurb p { font-size: 19px; }
 
 	.blog_left { float: none; width: 300px; margin: 0 auto; }
 
-	.blog_left .left_content img { width: 300px; height:inherit; }
+	.blog_left .left_content img { width: 300px; height:inherit; margin: 11px 34px 30px 0; }
 
-	.blog_left p { font-size: 17px; }
+	.blog_left p { font-size: 17px; margin: 20px 0; }
 
 	#commentform textarea { width: 300px; }
 
@@ -452,7 +447,7 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 	.footer_widgets_cont p { font-size: 17px; }
 
-	.footer_box_first { width: 93%; margin-left: 18px; }
+	.footer_box_first { width: 93%; margin-left: 0; }
 
 	.footer_box_last { border-left: none; }
 
@@ -466,8 +461,6 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 	/* Search results page */
 
 	.results_search_form { display: none; }
-
-	.page-title { margin-left: 24px; }
 
 	/* Contributors page */
 
@@ -487,15 +480,13 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 	.post-banner { min-height: auto!important; }
 
-	.single-blog-area .container { width: 95%!important; padding: 35px 10px!important; }
+	.single-blog-area .blog_left { width: 100%!important; }
 
-	.single-blog-area .blog_left { width: 92%!important; }
-
-	.single-blog-area #sidebar { width: 95%!important; display: block; margin: 50px 0 0!important; }
+	.single-blog-area #sidebar { width: 100%!important; display: block; margin: 50px 0 0!important; }
 
 	.single-blog-area #sidebar .tag-area { display: none; }
 
-	.single-blog-area .side_box .btn-more { margin: 1px 0 31px!important; }
+	.single-blog-area .side_box .btn-more { margin: 1px auto 31px!important; }
 
 	.mobile-tag-area {
 		display: block;
@@ -522,13 +513,11 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 	/* Author's Page */
 
-	.author_page_left .img-box { width: 150px; height: 150px; }
+	.author_page_left .img-box { width: 150px !important; height: 150px !important; }
 
-	.author_page_right { width: 53%!important; }
+	.author_page_right { width: 40%!important; }
 
 	.author_description { font-size: 18px; line-height: 1.5; width: 96%; }
-
-	.author-page .container { width: 95%!important; padding: 20px 23px!important; }
 }
 
 
