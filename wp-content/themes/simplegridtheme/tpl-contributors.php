@@ -30,6 +30,7 @@
               );
               $i = 0;
               $authors = get_users( $args );
+              usort($authors, "sort_user_by_rank");
               foreach($authors as $author) {
                 if ($i % 2 == 0) {
                     $output = '<div class="Contributors-info Contributors-bg">';

@@ -8,7 +8,7 @@
                         $cat_name = str_replace(" ", "_", $categories[0]->cat_name);
                     ?>
                     <div class="box category_id_<?php echo strtolower($cat_name) ?>"></div>
-                    <span><?php echo $categories[0]->cat_name ?></span>
+                    <a href="<?php echo get_home_url() . '/?s=' .$categories[0]->cat_name ?>"><span><?php echo $categories[0]->cat_name ?></span></a>
                   </div>
 
                   <?php echo get_avatar( get_the_author_meta('user_email'), $size = '114'); ?>

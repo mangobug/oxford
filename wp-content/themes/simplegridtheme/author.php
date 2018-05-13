@@ -31,14 +31,14 @@
 
               <h1><?php echo $curauth->display_name; ?></h1>
               <p><?php echo $curauth->job_title; ?></p>
-              <div class="desktop-only"><?php echo get_the_author_meta('description', $curauth->ID); ?></div>
+              <div class="desktop-only"><?php echo get_the_author_meta('biography', $curauth->ID); ?></div>
 
           </div><!--//autho_page_right-->
 
           <div class="clear"></div>
       </div>
       <div class="container">
-        <div class="mobile-only author_description"><?php echo get_the_author_meta('description', $curauth->ID); ?></div>
+        <div class="mobile-only author_description"><?php echo get_the_author_meta('biography', $curauth->ID); ?></div>
         <div class="author_social mobile-only">
             <h3>FOLLOW</h3>
             <span class="social-icons">

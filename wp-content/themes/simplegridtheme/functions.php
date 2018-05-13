@@ -102,7 +102,57 @@ function kriesi_pagination($pages = '', $range = 2)
          echo "</div>\n";
      }
 }
-
+
+function my_page_template_redirect()
+{
+    if ( is_category('leadership') ) {
+        $url = site_url( '/?s=leadership');
+				wp_safe_redirect( $url, 301 );
+				exit();
+    }
+		else if ( is_category('innovation') ) {
+        $url = site_url( '/?s=innovation');
+				wp_safe_redirect( $url, 301 );
+				exit();
+    }
+		else if ( is_category('sustainability') ) {
+        $url = site_url( '/?s=sustainability');
+				wp_safe_redirect( $url, 301 );
+				exit();
+    }
+		else if ( is_category('operations') ) {
+        $url = site_url( '/?s=operations');
+				wp_safe_redirect( $url, 301 );
+				exit();
+    }
+		else if ( is_category('global-ideas') ) {
+        $url = site_url( '/?s=global+ideas');
+				wp_safe_redirect( $url, 301 );
+				exit();
+    }
+		else if ( is_category('customer-experience') ) {
+        $url = site_url( '/?s=customer+experience');
+				wp_safe_redirect( $url, 301 );
+				exit();
+    }
+
+
+}
+add_action( 'template_redirect', 'my_page_template_redirect' );
+
+function remove_personal_options(){
+    echo '<script type="text/javascript">jQuery(document).ready(function($) {
+			$(\'form#your-profile tr.user-description-wrap\').remove(); // remove the "Biographical Info" field
+		});</script>';
+}
+
+add_action('admin_head','remove_personal_options');
+
+function sort_user_by_rank( $a, $b ) {
+	$retval = strnatcmp( $a->rank, $b->rank );
+	return $retval;
+}
+
 /*
 // **** EX RECENT POSTS START ****
 

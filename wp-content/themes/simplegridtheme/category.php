@@ -185,4 +185,4 @@ $('.load_more_cont a').live('click', function(e) {
 
         
 
-<?php get_footer(); ?>            
+<?php get_footer(); ?>
