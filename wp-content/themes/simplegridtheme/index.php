@@ -144,6 +144,10 @@
              .isotope( 'insert', result );
 
         if (nextlink != undefined) {
+          if ($('.load_more_cont').length == 0)
+          {
+            $('#load_posts_container').next().prepend('<div class="load_more_cont"><p align="center"><span class="load_more_text"><a href="">LOAD MORE</a></span></p></div>')
+          }
           $('.load_more_cont a').attr('href', nextlink);
         } else {
           $('.load_more_cont').remove();
