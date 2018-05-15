@@ -117,7 +117,7 @@
           <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" class="logo" /></a>
 
 
-          <strong class="slogan">XXXXXXX</strong>
+          <strong class="slogan">FORM</strong>
         <?php } ?>
 
 

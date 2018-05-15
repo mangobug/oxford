@@ -33,13 +33,13 @@
                 <span>
                 <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/footer-logo.png" class="logo" /></a>
               </span>
-                <div class="slogan"><strong>BLUEPRINT</strong></div>
+                <div class="slogan"><strong>FORM</strong></div>
               </div>
 
               <div class="clear"></div>
 
               <div>
-                <p>Oxford Blueprint is a consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minum veniam.</p>
+                <p>Oxford FORM is a consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minum veniam.</p>
               </div>
 
               <div class="clear"></div>
