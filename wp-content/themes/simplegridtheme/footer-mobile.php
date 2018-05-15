@@ -12,7 +12,7 @@
 
               <div class="footer_box footer_box_last">
 
-                  <p>Stay up to date with the latest in innovation and sustainability by subscribing to the Oxford Blueprint newsletter</p>
+                  <p>Stay up to date with the latest in innovation and sustainability by subscribing to the Oxford FROM newsletter</p>
 
                   <?php echo do_shortcode("[contact-form-7 id='84']"); ?>
 
