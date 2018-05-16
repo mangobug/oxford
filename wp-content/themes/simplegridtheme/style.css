@@ -161,9 +161,12 @@ input[type=text], input[type=email]  { outline: none; }
 
 box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
+/*
 .home_post_box .rounded{ -webkit-transform: scale(1.5); transform: scale(1.5); -webkit-transition: .3s ease-in-out; transition: .3s ease-in-out; }
 
 .home_post_box:hover .rounded{ -webkit-transform: scale(1); transform: scale(1); }
+
+*/
 
 .author-related-box {
   width: 384px;
@@ -215,7 +218,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 
 
-.blog_left { float: left; width: 785px;  font-family: Flama-Medium,Helvetica,Arial,sans-serif; }
+.blog_left { float: left; width: 725px;  font-family: Flama-Medium,Helvetica,Arial,sans-serif; }
 
 .blog_left p { line-height: 1.5; font-size: 18px; }
 
