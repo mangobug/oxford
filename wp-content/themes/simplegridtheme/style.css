@@ -169,7 +169,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 */
 
 .author-related-box {
-  width: 384px;
+  //width: 384px;
 }
 
 .author-related-box img {
@@ -326,7 +326,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .author_page_left .img-box img { display: block; width: 100%; height: auto; }
 
-.author_page_right { margin-bottom: 25px; width: 75%; font-size: 18px; }
+.author_page_right { margin-bottom: 25px; width: 72%; font-size: 18px; }
 
 .author_page_right p { line-height: 1.5; }
 

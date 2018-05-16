@@ -194,6 +194,15 @@
   .home_post_title_cont {
       min-width: 374px;
   }
+  .home_post_title_cont span img {
+    height: auto!important;
+  }
+  .home_post_box {
+    height: 295px!important;
+  }
+  .home_post_box img {
+    height: 295px!important;
+  }
 }
 @media only screen and (max-width: 1200px) {
   .single-blog-area .container {
