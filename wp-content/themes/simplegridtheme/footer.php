@@ -40,7 +40,7 @@
                     <li><a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/twitter-icon.png" /></a></li>
 
 
-                    <li><a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/instagram-icon.png" /></a></li>
+<!--                    <li><a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/instagram-icon.png" /></a></li>-->
 
                 </ul>
 
@@ -62,7 +62,7 @@
 
             <div class="footer_box footer_box_last">
 
-                <p>Stay up to date with the latest in innovation and sustainability by subscribing to the Oxford FORM newsletter</p>
+                <p>Stay connected with our community by subscribing to the Oxford | FORM newsletter</p>
 
                 <?php echo do_shortcode("[contact-form-7 id='84']"); ?>
 

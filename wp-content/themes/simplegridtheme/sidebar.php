@@ -2,15 +2,6 @@
 
         <div id="sidebar">
                 <div class="side_box">
-                  <div class="tag-area">
-                    <?php
-                        $categories = get_the_category();
-                        $cat_name = str_replace(" ", "_", $categories[0]->cat_name);
-                    ?>
-                    <div class="box category_id_<?php echo strtolower($cat_name) ?>"></div>
-                    <a href="<?php echo get_home_url() . '/?s=' .$categories[0]->cat_name ?>"><span><?php echo $categories[0]->cat_name ?></span></a>
-                  </div>
-
                   <?php echo get_avatar( get_the_author_meta('user_email'), $size = '114'); ?>
                   <h3 class="author">
                     <?php the_author(); ?>

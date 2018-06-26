@@ -104,13 +104,11 @@
 
 
           <div class="homepage_blurb">
-            <h1>About Oxford FORM</h1>
+            <h1>About Oxford | FORM</h1>
 
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>Oxford | FORM presents ideas from the intersection of people and places. Here, our employees, partners and friends share stories from life on the frontiers of global real estate. From design to development, investment to innovation, placemaking to prototyping, we’ll share what we’re thinking, reading and doing. We’ll also have some fun along the way.</p>
 
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>Oxford | FORM is about city-building on a human-scale. Be part of the conversation. We’ll journey forward, together.</p>
 
           </div>
 

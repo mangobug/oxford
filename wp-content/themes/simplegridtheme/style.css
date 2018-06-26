@@ -137,6 +137,7 @@ input[type=text], input[type=email]  { outline: none; }
 
 //.row-2 { margin-bottom: 15px; }
 
+#searchform { margin-top: 61px; }
 
 /* Content */
 
@@ -246,13 +247,13 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 .post_box_category a { font-size: 10px; font-weight: 100; float: right; color: #FFFFFF; padding: 10px; text-decoration: none; text-transform: uppercase; }
 
 /* Innovation */
-.category_id_innovation { background-color: #ff751a; mix-blend-mode: multiply;  height: 100%; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; }
+.category_id_innovation { background-color: #E65100; mix-blend-mode: multiply;  height: 100%; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; }
 /* Customer Experience */
-.category_id_customer_experience { background-color: #3a4a58; mix-blend-mode: multiply; height: 100%; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; }
+.category_id_customer_experience { background-color: #4A148C; mix-blend-mode: multiply; height: 100%; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; }
 /* sustainability */
-.category_id_sustainability { background-color: #44cc00; mix-blend-mode: multiply; height: 100%; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; }
+.category_id_sustainability { background-color: #33691E; mix-blend-mode: multiply; height: 100%; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; }
 /* Leadership */
-.category_id_leadership { background-color: #8800cc; mix-blend-mode: multiply; height: 100%; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; }
+.category_id_leadership { background-color: #3a4a58; mix-blend-mode: multiply; height: 100%; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; }
 /* Operations */
 .category_id_operations { background-color: #096fdc; mix-blend-mode: multiply; height: 100%; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; }
 /* Global Ideas */
@@ -415,14 +416,14 @@ div.wpcf7-response-output { margin: 2em 0em 1em!important; }
 
 	.featured_banner img { width: 320px; height: 32px; }
 
-
+	#searchform { margin-top: 0px; }
 
 	.blog_box_cont { width: 300px; float: none; margin: 0 auto; }
 
 	.blog_content { float: none; width: 300px; margin-left: auto; margin-right: auto; }
 
 
-	.home_post_title_cont { width: 100%; }
+	.home_post_title_cont { width: 100%; min-width: auto!important; }
 
 	.home_post_title_cont .heading { font-size: 26px; }
 
