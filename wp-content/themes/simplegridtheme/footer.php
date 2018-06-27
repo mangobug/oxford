@@ -22,11 +22,11 @@
               </div>
 
               <div class="clear"></div>
-
+<!--
               <div>
                 <p>Oxford FORM is a consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minum veniam.</p>
               </div>
-
+-->
               <div class="clear"></div>
 
               <div class="social-area">

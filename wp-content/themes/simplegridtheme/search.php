@@ -70,7 +70,7 @@
                       </div>
                       <div class="top-link"><a href="javascript:void();" rel="category tag"><?php the_category(', '); ?></a></div>
 
-                      <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('home-post',array('alt' => 'post image', 'class' => 'rounded')); ?></a>
+                      <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-tile',array('alt' => 'post image', 'class' => 'rounded')); ?></a>
 
 
 

@@ -10,11 +10,11 @@
 
         $x = 0;
 
-        
+
 
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-        if($paged > 1) 
+        if($paged > 1)
 
           $y = (0 + (($paged-1) * 12));
 
@@ -25,9 +25,9 @@
 global $wp_query;
 $args = array_merge( $wp_query->query, array( 'posts_per_page' => 9 ) );
 query_posts( $args );
-        while (have_posts()) : the_post(); ?>                                                                      
+        while (have_posts()) : the_post(); ?>
 
-        
+
 
             <?php if($x == 2) { ?>
 
@@ -39,13 +39,13 @@ query_posts( $args );
 
             <?php } ?>
 
-            
+
 
                 <!--<img src="<?php bloginfo('stylesheet_directory'); ?>/images/blog-image.jpg" />-->
 
-                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('home-post',array('alt' => 'post image', 'class' => 'rounded')); ?></a>
+                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('post-tile',array('alt' => 'post image', 'class' => 'rounded')); ?></a>
 
-                
+
 
                 <div class="home_post_desc" id="home_post_desc<?php echo $y; ?>">
 
@@ -53,7 +53,7 @@ query_posts( $args );
 
                 </div><!--//home_post_desc-->
 
-                
+
 
                 <div class="home_post_title_cont">
 
@@ -65,27 +65,27 @@ query_posts( $args );
 
             </div><!--//home_post_box-->
 
-        
+
 
             <?php if($x == 2) { $x = -1; /*echo '<div class="clear"></div>';*/ } ?>
 
-        
+
 
         <?php $x++; $y++; ?>
 
-        <?php endwhile; ?>        
+        <?php endwhile; ?>
 
-        <?php wp_reset_query(); ?>        
+        <?php wp_reset_query(); ?>
 
-        
+
 
         <div class="clear"></div>
 
-        
+
 
         </div><!--//load_posts_container-->
 
-        
+
 
         <div class="load_more_cont">
 
@@ -93,9 +93,9 @@ query_posts( $args );
 
         </div><!--//load_more_cont-->
 
-        
 
-        
+
+
 
 <script type="text/javascript">
 
@@ -133,9 +133,9 @@ $('.load_more_cont a').live('click', function(e) {
 
                         //$('.load_more_text a').html('Load More');
 
-                        
 
-                        
+
+
 
 			if (nextlink != undefined) {
 
@@ -165,15 +165,15 @@ $('.load_more_cont a').live('click', function(e) {
 
                               //                      $('.load_more_cont').remove();
 
-                                                    $('#load_posts_container').append('<div class="clear"></div>');        
+                                                    $('#load_posts_container').append('<div class="clear"></div>');
 
                           }
 
-                        });                        
+                        });
 
                     }
 
-                        
+
 
 		}
 
@@ -181,8 +181,8 @@ $('.load_more_cont a').live('click', function(e) {
 
 });
 
-</script>        
+</script>
 
-        
+
 
 <?php get_footer(); ?>

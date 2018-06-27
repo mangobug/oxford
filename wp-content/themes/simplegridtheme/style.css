@@ -323,7 +323,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 .author_page_left { width: 25%; }
 
-.author_page_left .img-box { float: left; width: 200px; height: 200px; border: 1px solid #ccc; margin: 0 46px 0 0; }
+.author_page_left .img-box { float: left; width: 200px; height: 200px; border: 1px solid #ccc; margin: 0 46px 0 0; overflow: hidden; }
 
 .author_page_left .img-box img { display: block; width: 100%; height: auto; }
 
@@ -386,7 +386,7 @@ box-shadow: 2px 2px 5px 0px #ccc,0px 1px 0px rgba(204,204,204,.3) inset;*/ }
 
 
 .social_icons li img { width: 22px; }
-.social-area { margin-top: 15px; }
+.social-area { margin-top: 15px; margin-left: 5px; }
 .social-area span { padding: 5px 5px 5px 0; }
 .wpcf7-submit { font-size: 10px; padding: 6px 22px; border: 1px solid #8e98a0; color: #FFF; text-transform: uppercase; background: none; }
 .wpcf7-submit:hover { background: #FFF; color: #3a4a58;}

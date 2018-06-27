@@ -638,7 +638,7 @@ private function review_dismissal() {
     									<div class="top-link">' . get_the_category_list(', ') . '</div>
 
   										<a href="' . get_permalink( $post->ID ) . '">
-    									' . get_the_post_thumbnail($post, 'home-post', array('alt' => 'post image', 'class' => 'rounded')) . '
+    									' . get_the_post_thumbnail($post, 'post-tile', array('alt' => 'post image', 'class' => 'rounded')) . '
   										</a>
   										<div class="home_post_desc" id="home_post_desc' . $post->ID . '">
   										</div>

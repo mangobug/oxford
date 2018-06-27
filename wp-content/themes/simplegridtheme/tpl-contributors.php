@@ -38,7 +38,7 @@
                     $output = '<div class="Contributors-info">';
                 }
                 $output .= '<div class="container">
-                                <div class="img-box">' . get_avatar($author->ID) . '</div>
+                                <div class="img-box">' . get_avatar($author->ID, 200) . '</div>
                                 <div class="txt-holder">
                                     <span class="name">' . get_the_author_meta('display_name', $author->ID) . '</span>
                                     <span class="description">' . get_field( 'job_title', $author ) . '</span>

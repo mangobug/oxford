@@ -34,15 +34,15 @@ if ( function_exists('register_sidebar') ) {
 		'before_title' => '<h3>',
 		'after_title' => '</h3>',
 	));
-        
+
         register_sidebar(array(
                 'name'=>'Footer',
 		'before_widget' => '<div class="footer_box">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3>',
 		'after_title' => '</h3>',
-	));        
-        
+	));
+
         register_sidebar(array(
                 'name'=>'Footer Last',
 		'before_widget' => '<div class="footer_box footer_box_last">',
@@ -67,8 +67,8 @@ function catch_that_image() {
 }
 
 function kriesi_pagination($pages = '', $range = 2)
-{  
-     $showitems = ($range * 2)+1;  
+{
+     $showitems = ($range * 2)+1;
 
      global $paged;
      if(empty($paged)) $paged = 1;
@@ -81,7 +81,7 @@ function kriesi_pagination($pages = '', $range = 2)
          {
              $pages = 1;
          }
-     }   
+     }
 
      if(1 != $pages)
      {
@@ -97,7 +97,7 @@ function kriesi_pagination($pages = '', $range = 2)
              }
          }
 
-         if ($paged < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($paged + 1)."'>&rsaquo;</a>";  
+         if ($paged < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($paged + 1)."'>&rsaquo;</a>";
          if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";
          echo "</div>\n";
      }
@@ -153,6 +153,12 @@ function sort_user_by_rank( $a, $b ) {
 	return $retval;
 }
 
+add_action( 'after_setup_theme', 'my_adjust_image_sizes' );
+function my_adjust_image_sizes() {
+    //add a cropped image-size with 300 x 250 Pixels
+    add_image_size( 'post-tile', 300, 250, true );
+}
+
 /*
 // **** EX RECENT POSTS START ****
 
@@ -186,7 +192,7 @@ function ex_func_recentposts($args = array(), $displayComments = TRUE, $interval
         ?>
         <ul class="recent_posts_list">
            <?php
-  
+
   global $post;
            //$myposts = get_posts('numberposts=6&category_name=Featured Small');
            $myposts = get_posts('numberposts=6');
@@ -198,11 +204,11 @@ function ex_func_recentposts($args = array(), $displayComments = TRUE, $interval
         </ul>
         <?php
         wp_reset_query();
-        
+
         echo $args['after_widget'];
 
 }
-register_widget('ex_recent_posts');  
+register_widget('ex_recent_posts');
 
 // **** EX RECENT POSTS END ****
 
@@ -265,11 +271,11 @@ function ex_func_social($args = array(), $displayComments = TRUE, $interval = ''
           <li class="last"><a href="<?php echo $args['rss_link']; ?>">Subscribe to our RSS</a> <img src="<?php bloginfo('stylesheet_directory'); ?>/images/rss-icon.png" /></li>
         </ul>
         <?php
-        
+
         echo $args['after_widget'];
 
 }
-register_widget('ex_social');  
+register_widget('ex_social');
 
 // **** EX SOCIAL END ****
 
@@ -313,11 +319,11 @@ function ex_func_search($args = array(), $displayComments = TRUE, $interval = ''
           </form>
           <div class="clear"></div>
         <?php
-        
+
         echo $args['after_widget'];
 
 }
-register_widget('ex_search');  
+register_widget('ex_search');
 
 // **** EX SEARCH END ****
 */
