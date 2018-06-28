@@ -431,6 +431,18 @@ class Sassy_Social_Share_Admin {
 	}
 	
 	/**
+	 * Save GDPR notification flag in DB
+	 *
+	 * @since    3.2.1
+	 */
+	public function gdpr_notification_read() {
+
+		update_option( 'heateor_sss_gdpr_notification_read', '1' );
+		die;
+	
+	}
+
+	/**
 	 * Show notices in admin area
 	 *
 	 * @since    2.4
@@ -445,6 +457,31 @@ class Sassy_Social_Share_Admin {
 					<p><?php _e( 'Update "Social Share myCRED Integration" add-on for maximum compatibility with current version of Sassy Social Share', 'sassy-social-share' ) ?></p>
 				</div>
 				<?php
+			}
+
+			if ( version_compare( '3.2.1', $this->version ) <= 0 ) {
+				if ( ! get_option( 'heateor_sss_gdpr_notification_read' ) ) {
+					?>
+					<script type="text/javascript">
+					function heateorSssGDPRNotificationRead(){
+						jQuery.ajax({
+							type: 'GET',
+							url: '<?php echo get_admin_url() ?>admin-ajax.php',
+							data: {
+								action: 'heateor_sss_gdpr_notification_read'
+							},
+							success: function(data, textStatus, XMLHttpRequest){
+								jQuery('#heateor_sss_gdpr_notification').fadeOut();
+							}
+						});
+					}
+					</script>
+					<div id="heateor_sss_gdpr_notification" class="update-nag">
+						<h3>Sassy Social Share</h3>
+						<p><?php echo sprintf( __( 'This plugin is GDPR compliant. You need to update the privacy policy of your website regarding the personal data this plugin saves, as mentioned <a href="%s" target="_blank">here</a>', 'sassy-social-share' ), 'http://support.heateor.com/gdpr-and-our-plugins' ); ?><input type="button" onclick="heateorSssGDPRNotificationRead()" style="margin-left: 5px;" class="button button-primary" value="<?php _e( 'Okay', 'sassy-social-share' ) ?>" /></p>
+					</div>
+					<?php
+				}
 			}
 		}
 

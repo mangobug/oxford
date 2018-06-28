@@ -6,6 +6,7 @@
    @param container     object
    @param items         object
    @param selector      string
+   @param columnWidth   string
    @param animation     string
    @param speed         int
    @param masonry_init  boolean
@@ -16,7 +17,7 @@
 */
 
 
-let almMasonry = (container, items, selector, animation, horizontalOrder, speed, masonry_init, init, filtering) => {	
+let almMasonry = (container, items, selector, columnWidth, animation, horizontalOrder, speed, masonry_init, init, filtering) => {	
       
    let duration = (speed+100)/1000 +'s'; // Add 100 for some delay
    let hidden = 'scale(0.5)';
@@ -35,25 +36,34 @@ let almMasonry = (container, items, selector, animation, horizontalOrder, speed,
    if(animation === 'slide-down'){
       hidden = 'translateY(-50px)';
       visible = 'translateY(0)';
-   } 
+   }  
     
    if(animation === 'none'){
-      hidden = 'translateY(0)'; 
+      hidden = 'translateY(0)';  
       visible = 'translateY(0)';
    }
    
+   // Set default columnWidth
+   if(columnWidth){
+	   if(!isNaN(columnWidth)){// Check if number
+		   columnWidth = parseInt(columnWidth);
+		}
+   } else { // No columnWidth, use the selector
+	   columnWidth = selector;
+   }
+   
+   // Set horizontalOrder
    horizontalOrder = (horizontalOrder === 'true') ? true : false;
    
 	if(!filtering){
    	
 		// First Run
 		if(masonry_init && init){
-			container.imagesLoaded( () => {
-				items.fadeIn(speed);				
+			container.imagesLoaded( () => {				
 				container.masonry({
 					itemSelector: selector,
 					transitionDuration: duration,
-					columnWidth: selector,
+					columnWidth: columnWidth,
 					horizontalOrder: horizontalOrder,
                hiddenStyle: {
                   transform: hidden,
@@ -64,16 +74,14 @@ let almMasonry = (container, items, selector, animation, horizontalOrder, speed,
                   opacity: 1
                }
 				});
-				//container.masonry('reloadItems');
+				almMasonryFadeIn(container[0].parentNode, speed); 
 			});
 		}
 		
 		// Standard
 		else{
-			container.append( items ); // Append new items
-			container.imagesLoaded( () => {
-				items.show();
-				container.masonry( 'appended', items );
+			items.imagesLoaded( () => {
+				container.append(items).masonry( 'appended', items );
 			});
 		}
 
@@ -85,3 +93,18 @@ let almMasonry = (container, items, selector, animation, horizontalOrder, speed,
 	}
 
 };
+
+
+// Fade in masonry on initial page load
+let almMasonryFadeIn = (element, speed) => {
+	speed = speed/10;
+	let op = parseInt(element.style.opacity);  // initial opacity
+	let timer = setInterval(function () { 
+		if (op > 0.9){
+			element.style.opacity = 1;
+			clearInterval(timer);
+		}
+		element.style.opacity = op;
+		op += 0.1;
+	}, speed);
+}

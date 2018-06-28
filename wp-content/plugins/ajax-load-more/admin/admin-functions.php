@@ -145,7 +145,7 @@ function alm_get_addons(){
          'status' => 'alm_prev_post_license_status',
          'settings_field' => 'alm_prev_post_license',
          'img' => 'img/add-ons/prev-post-add-on.jpg',
-         'url' => 'https://connekthq.com/plugins/ajax-load-more/add-ons/preloaded/',
+         'url' => 'https://connekthq.com/plugins/ajax-load-more/add-ons/previous-post/',
          'item_id' => ALM_PREV_POST_ITEM_NAME
       ),
       array(

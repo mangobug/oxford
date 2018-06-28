@@ -263,34 +263,32 @@ a.layout-hover{
 
 /* Expand Collapse Headings */
 .ajax-load-more h3.heading{
-   font-weight: 700;
-   padding: 15px 10px 15px 40px !important;
+   font-weight: 600;
+   padding: 15px 10px 15px 38px !important;
    line-height: normal !important;
    margin: 0 !important;
-   color: #555;
+   color: $grey;
    cursor: pointer;
    width: 100%;
    position: relative;
-   font-size: 17px;
+   font-size: 16px;
    background: #f7f7f7;
-   border-bottom: 1px solid #efefef;
+   border-bottom: 1px solid #e1e1e1; 
 }
    .ajax-load-more h3.heading:hover:after,
    .ajax-load-more .add-on h3.heading:hover:after{
-      color: #f05452;
-   }
+      color: #ccc;
+   } 
    .ajax-load-more h3.heading:hover{
       color: #222;
    }
-
    .ajax-load-more h3.heading:after{
       font-family: 'FontAwesome';
       content: '\f056';
-      color: #ccc;
-      font-size: 18px;
+      color: #e1e1e1;
       position: absolute;
       left: 13px;
-      top: 17px;
+      top: 16px;
       height: 20px;
       width: 20px;
    }
@@ -302,7 +300,7 @@ a.layout-hover{
    }
 
 .ajax-load-more .add-on h3.heading:after{
-   color: #999;
+   color: #e8e8d3;
 }
 .ajax-load-more .add-on h3.heading{
    background-color: #fefeed;
@@ -753,7 +751,7 @@ a.layout-hover{
 
 .ajax-load-more .row{
    padding: 0 !important;
-   margin: 20px 0 0;
+   margin: 10px 0 0;
    height: auto;
    width: 100%;
    display: block;
@@ -773,7 +771,7 @@ a.layout-hover{
    }
 
 	.admin.ajax-load-more .row{
-		border-color: #efefef;
+		border-color: #e1e1e1;
 	}
 	.admin.ajax-load-more .repeaters .row:hover,
 	.admin.ajax-load-more.shortcode-builder .row:hover{
@@ -855,14 +853,13 @@ a.layout-hover{
    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 hr.indented{ // Indented as fake padding in shortcode builder
-	width: calc(100% - 72px);
-	margin-left: 36px; 
+	width: calc(100% - 40px);
+	margin-left: 20px; 
 }
-
 .ajax-load-more .section-title {
    float: left;
-   padding: 22px 0 20px 36px;
-   width: 40%;
+   padding: 20px 0 20px 20px;
+   width: 35%;
 }
 
 .ajax-load-more .section-title.full {
@@ -870,13 +867,14 @@ hr.indented{ // Indented as fake padding in shortcode builder
    float: none;
 }
 	.ajax-load-more .section-title h4{
-      font-size: 16px;
-      margin-bottom: 13px;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 15px;
    }
 	.ajax-load-more .section-title p,
 	.ajax-load-more .wrap p.descriptor{
-		font-size: 13px;
-		line-height: 20px;
+		font-size: 14px;
+		line-height: 22px;
 		color: #999;
 	}
 	.ajax-load-more .wrap p.descriptor{
@@ -945,7 +943,7 @@ hr.indented{ // Indented as fake padding in shortcode builder
 .cta_template_wrap,
 .restapi_options,
 .filters_options,
-.next-page-content,
+.next-page-content, 
 .acf-options,
 .masonry-options, 
 .progress-bar-options{
@@ -953,10 +951,10 @@ hr.indented{ // Indented as fake padding in shortcode builder
 }
  
 .ajax-load-more .row .wrap{
-  padding: 20px 0 0 5%;
+  padding: 20px 20px 0 5%;
   margin: 0;
   border: none;
-  width: 58%;
+  width: 65%;
   float: left;
   position: relative;
 }
@@ -1748,7 +1746,7 @@ table.highlight{
       .license-title{
          border-radius: 3px 3px 0 0;
          border: 1px solid #e1e1e1;
-         background-color: #efefef;
+         background-color: #f7f7f7;
          position: relative;
       }
          .license-title .status{
@@ -1823,7 +1821,7 @@ table.highlight{
 	   display: none;
    }
    .license-btn.hide{
-	   display: none;
+	   display: none; 
    }
    .license-btn-wrap{
 	   display: block;
@@ -1835,7 +1833,7 @@ table.highlight{
 	   	line-height: 18px;
 	   }
    	.license-btn-wrap .msg strong{
-	   	display: block;
+	   	display: block; 
 	   }
    	.license-btn-wrap .msg em{
 	   	opacity: 0.7;
@@ -1849,7 +1847,7 @@ table.highlight{
       padding: 15px;
       border: 1px solid #e1e1e1;
       border-top: none;
-      background-color: #f7f7f7;
+      background-color: #fff;
       border-radius: 0 0 3px 3px; 
    }
       .license-wrap label{
@@ -1860,7 +1858,7 @@ table.highlight{
          background-color: #fff;
          margin: 0 0 15px;
          width: 100% !important;
-         border-color: #ccc;
+         border-color: #e7e7e7;
          padding: 14px;
       }
          .license-wrap input[type=text]:focus{
@@ -2039,7 +2037,7 @@ table.highlight{
 			background: #efefef;
 			line-height: 18px;
 			text-align: center;
-			margin: 2px 7px 0 0;
+			margin: 1px 7px 0 0;
 			position: relative;
 		}
 
@@ -2210,7 +2208,7 @@ table.highlight{
    overflow: visible;
 }
    .admin.ajax-load-more .row.unlimited:first-of-type{
-      margin-top: 15px;
+      margin-top: 10px;
    }
 
    .repeaters .row,
@@ -2268,7 +2266,7 @@ table.highlight{
 
 .alm-add-template{
    text-align: center;
-   margin: 15px 0 0 !important;
+   margin: 20px 0 5px !important;
    display: block;
    font-size: 15px !important;
    font-weight: 700;
@@ -2282,12 +2280,8 @@ table.highlight{
       display: inline-block;
       padding: 11px 16px 13px;
       line-height: 1;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
       border-radius: 3px;
       text-decoration: none;
-      -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.07);
-      -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.07);
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.07);
       text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
    }
@@ -2302,14 +2296,10 @@ table.highlight{
          background: #ff5a58;
          border-color: #ff5a58;
          color: #fff;
-			-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 0 rgba(0, 0, 0, 0.07);
-			-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 0 rgba(0, 0, 0, 0.07);
 			box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 0 rgba(0, 0, 0, 0.07);
          text-shadow: none;
       }
       .alm-add-template a:focus{
-         -webkit-box-shadow: none;
-         -moz-box-shadow: none;
          box-shadow: none;
          text-shadow: none;
       }
@@ -2317,8 +2307,6 @@ table.highlight{
          color: #fff;
          background: #ec4745;
          border-color: #ec4745;
-         -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-         -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
          text-shadow: none;
       }
@@ -2335,6 +2323,7 @@ table.highlight{
       .alm-add-template a:active i{
          color: #fff;
       }
+      
 .spacer{
    height:10px;
    clear:both;
@@ -2344,7 +2333,6 @@ table.highlight{
 
 /*
 * Cache
-*
 * @since 2.6.0
 */
 
@@ -2362,20 +2350,20 @@ table.highlight{
 .ajax-load-more .alm-cache-search-wrap{
    position: relative;
    display: block;
-   margin: -5px 0 25px;
+   margin: -5px 0 25px; 
    input{
       width: 100% !important;
       margin: 0 !important;
-      padding: 15px;
+      padding: 12px;
       display: block;
-      font-size: 18px;
+      font-size: 16px;
    }
    i{
       position: absolute;
-      right: 15px;
-      top: 14px;
-      color: #ccc;
-      font-size: 24px;
+      right: 11px;
+      top: 13px;
+      color: #ccc; 
+      font-size: 20px;
       z-index: 1;
    }
 }
@@ -2383,7 +2371,7 @@ table.highlight{
 /* Directory Listing */
 
 .alm-dir-listing{
-   border: 1px solid #efefef;
+   border: 1px solid #e1e1e1;
    padding: 0;
    margin: 20px 0 0;
    &.theme-repeaters{
@@ -2432,14 +2420,15 @@ table.highlight{
       font-size: 14px;
       text-decoration: none;
       padding: 5px 10px;
-      border: 1px solid #efefef;
+      border: 1px solid #e1e1e1;
       color: #ccc;
       -webkit-border-radius: 2px;
       -moz-border-radius: 2px;
       border-radius: 2px;
    }
       .alm-dir-listing:hover .dir-title .delete{
-         border-color: #ccc;
+         border-color: #e1e1e1;
+         background-color: #fff;
          color: #666;
       }
       .alm-dir-listing .dir-title .delete:hover{
@@ -2690,7 +2679,7 @@ p.cache-stats{
       border-bottom: 1px solid #e1e1e1;
       background-color: #f7f7f7;
       border-radius: 2px 2px 0 0; 
-      color: #23282d;
+      color: $grey;
       position: relative;      
       i{
          position: absolute;
@@ -2727,13 +2716,12 @@ p.cache-stats{
  
 
 /*
-* Repeater Template options dropdown
-*
-* @since 2.4.1
-*/
+ * Repeater Template options dropdown
+ * @since 2.4.1 
+ */
 
 .ajax-load-more .row.template{
-	position: relative;
+	position: relative; 
 }
 	.ajax-load-more .row.template:hover .alm-repeater-options{
 		opacity: 1;
@@ -2741,16 +2729,16 @@ p.cache-stats{
 
 .alm-drop-btn.alm-repeater-options{
    position: absolute;
-   top: -43px;
-   right: 11px;
-   z-index:99;
+   top: -42px;
+   right: 7px;
+   z-index: 99;
 }
    .alm-drop-btn a.target{
       font-weight: 500;
       position: relative;
       color: #999;
       text-decoration: none !important;
-      padding: 8px 12px 8px 32px;
+      padding: 8px 12px 8px 30px;
       border: 1px solid #e1e1e1;
       border-radius: 3px;
       font-size: 13px;
@@ -2760,7 +2748,7 @@ p.cache-stats{
    }
       .alm-drop-btn a.target > i{
          color: #999;
-         font-size: 16px;
+         font-size: 15px; 
          position: absolute;
          top:9px;
          left: 10px;
@@ -2780,7 +2768,7 @@ p.cache-stats{
    .alm-repeater-options.active a.target{
 		background-color: #fff;
 	   border-color: #c9c9c9;
-	   box-shadow: inset 0 1px 1px #ccc !important;
+	   box-shadow: inset 0 1px 1px #efefef !important;
 	}
 	.alm-repeater-options.active a.target,
 	.alm-repeater-options.active a.target i.fa-cog{
@@ -2797,13 +2785,12 @@ p.cache-stats{
       .alm-drop-btn.alm-layout-selection a.target{
          background-color: #f7f7f7;
          border-color: #e1e1e1;
-         color: #555;
+         color: $grey;
          text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
       }
       .alm-drop-btn.alm-layout-selection > a > i{
          left: 12px;
       }
-
       .alm-drop-btn.alm-layout-selection li.type{
          height: 36px;
          line-height: 36px;
@@ -2823,7 +2810,7 @@ p.cache-stats{
          .alm-drop-btn.alm-layout-selection li.type .col-select a{
             width: 32px;
             height: 30px;
-            margin: 3px 3px 0 0;
+            margin: 3px 0 0 0;
             padding: 0;
             float: left;
             text-align: center;
@@ -2866,16 +2853,17 @@ p.cache-stats{
       .alm-drop-btn.alm-layout-selection a.external,
       .alm-drop-btn.alm-layout-selection a.add-on{
          background-color: #f7f7f7;
-         padding: 13px 10px 13px 42px;
+         padding: 13px 10px 13px 38px;
          display: block;
       }
       .alm-drop-btn.alm-layout-selection a.external{
-         padding: 0 10px 0 42px;
+         padding: 0 10px 0 38px;
       }
       .alm-drop-btn.alm-layout-selection a.external i{
 	      color: #999;
 	      border-color: #ccc;
-	      top: 10px;
+	      top: 11px;
+	      width: 38px;
       }
       .alm-drop-btn.alm-layout-selection a.external:hover i{
 	      color: #666;
@@ -2909,7 +2897,7 @@ p.cache-stats{
       }
       .alm-drop-btn.alm-layout-selection a.add-on i{
          color: #fff !important;
-         border-color: rgba(255, 255, 255, 0.3);
+         border-color: rgba(255, 255, 255, 0.3); 
       }
 
          .alm-drop-btn.alm-layout-selection a.target:hover,
@@ -2918,7 +2906,7 @@ p.cache-stats{
             color: #222;
             background-color: #fff;
             border-color: #ccc;
-   		   box-shadow: 0 0 3px #efefef;
+   		   box-shadow: 0 0 3px #e7e7e7;
    		   opacity: 1;
          }
          .alm-drop-btn.alm-layout-selection.active a.target,
@@ -2997,10 +2985,10 @@ p.cache-stats{
          border: 1px solid #ccc;
          box-shadow: 0 0 4px #ccc;
          padding: 8px;
-         width: 260px;
+         width: 220px;
       }
       .alm-layout-selection .alm-dropdown .alm-drop-inner{
-         width: 280px;
+         width: 250px;
       }
          .alm-drop-inner:after,
          .alm-drop-inner:before {
@@ -3020,7 +3008,6 @@ p.cache-stats{
          	border-width:7px;
          	margin-left:-7px;
          }
-
          .alm-drop-inner:before {
          	border-color:rgba(204,204,204,0);
          	border-bottom-color:#ccc;
@@ -3034,8 +3021,6 @@ p.cache-stats{
    .alm-dropdown ul{
       padding:0;
       margin:0;
-      border-radius: 2px;
-      border: 1px solid #efefef;
       overflow: hidden;
    }
    .alm-dropdown ul li{
@@ -3054,7 +3039,7 @@ p.cache-stats{
       border: none;
    }
       .alm-dropdown ul li a{
-         padding: 0 10px 0 42px;
+         padding: 0 10px 0 32px;
          line-height: 37px;
          height: 36px;
          display: block;
@@ -3079,7 +3064,6 @@ p.cache-stats{
 		 	width: 32px;
 		 	height: 16px;
 		 	line-height: 16px;
-		 	border-right: 1px solid #e1e1e1;
 		 	display: inline-block;
 		 	text-align: center;
       }
@@ -3091,7 +3075,6 @@ p.cache-stats{
 	   .alm-dropdown ul li a:hover i{
 	      color: #999;
 	   }
-
 
 
 /*
@@ -3451,12 +3434,12 @@ p.cache-stats{
       float: left;
       margin: 0 2px 0 0;
       padding: 0;
-      background: none;
+      background: none; 
       list-style: none;
    }
    .ajax-load-more .alm-toggle-switch li a{
       display: block;
-      padding: 16px 26px;
+      padding: 15px 22px;
       line-height: 1;
       border-radius: 2px;
       text-decoration: none;

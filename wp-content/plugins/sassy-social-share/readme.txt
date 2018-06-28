@@ -3,8 +3,8 @@ Contributors: Heateor
 Donate link: https://www.heateor.com/donate/?action=Sassy+Social+Share
 Tags: social share, social sharing, social media share, share facebook, facebook social share, wordpress social share, share buttons, social share buttons, facebook like, twitter tweet, google +1, google plus share
 Requires at least: 2.5.0
-Tested up to: 4.9.4
-Stable tag: 3.2
+Tested up to: 4.9.6
+Stable tag: 3.2.3
 License: GPLv2 or later
 
 Slickest, Simplest and Optimized Share buttons. Facebook, Twitter, Google+, Pinterest, WhatsApp and over 100 more.
@@ -18,6 +18,7 @@ This is the Simplest and Smoothest Social Sharing plugin with optimized and grea
 **Note:** Plugin will not work on local server. You should have an online website for the plugin to function properly.
 
 = Feature list =
+* GDPR Compliant
 * Around **100 Social Sharing/Bookmarking** services
 * Social Media follow icons (Redirect website visitors to your Social Media pages)
 * Share counts are supported for Facebook, Linkedin, Twitter, Buffer, Reddit, Pinterest, Stumbleupon, Odnoklassniki and Vkontakte
@@ -119,6 +120,16 @@ Yes, we can help you with it. Just drop an email at support[at]heateor[dot]com
 4. **Universal Sharing Popup**: Universal Sharing popup having all the supported sharing and bookmarking services
 
 == Changelog ==
+= 3.2.3 =
+* [Bugfix] Social Share counts were not working properly after previous update
+
+= 3.2.2 =
+* [Bugfix] Facebook shares were not correct in a few cases with <a href="https://www.heateor.com/recover-social-share-counts/" target="_blank">Recover Social Share Counts</a> add-on active
+
+= 3.2.1 =
+* [Improvement] Compatible with GDPR
+* [Bugfix] GentleReader logo was not appearing when enabled in social share bar
+
 = 3.2 =
 * [New] Added <a href="https://gentlereader.com" target="_blank">GentleReader</a> bookmarking service
 * [Bugfix] Follow icons were appearing below each-other in a few cases
@@ -524,3 +535,13 @@ Yes, we can help you with it. Just drop an email at support[at]heateor[dot]com
 * [Improvement] Improved admin UI for mobile devices
 * [Improvement] Upgraded version of official Facebook SDK being used throughout the plugin
 * [Improvement] Link to language codes at plugin options page was broken
+
+= 3.2.1 =
+* [Improvement] Compatible with GDPR
+* [Bugfix] GentleReader logo was not appearing when enabled in social share bar
+
+= 3.2.2 =
+* [Bugfix] Facebook shares were not correct in a few cases with <a href="https://www.heateor.com/recover-social-share-counts/" target="_blank">Recover Social Share Counts</a> add-on active
+
+= 3.2.3 =
+* [Bugfix] Social Share counts were not working properly after previous update

@@ -16,8 +16,8 @@
 @font-face {
     font-family: helveticaneue-light;
     src: url(fonts/helveticaneue-light.eot);
-    src: url(fonts/helveticaneue-light.eot?#iefix) format('embedded-opentype'),
-		 url(fonts/helveticaneue-light.woff) format('woff'),
+    src: url(fonts/helveticaneue-light.eot?#iefix) format('embedded-opentype'), 
+		 url(fonts/helveticaneue-light.woff) format('woff'), 
 		 url(fonts/helveticaneue-light.ttf) format('truetype'),
 		 url(fonts/helveticaneue-light.svg#helveticaneue-light) format('svg');
     font-weight: 400;
@@ -346,6 +346,7 @@ label.toglpstpgsbttl { float: left; margin-top: 5px !important}
     padding: 0;
     list-style: none;
     display: inline-block;
+    float: left;
 }
 .tab5 ul.enough_waffling li span {
     float: left;
@@ -386,7 +387,9 @@ label.toglpstpgsbttl { float: left; margin-top: 5px !important}
 }
 .sticking a {
     color: #a4a9ad;
-    text-decoration: none;
+}
+.sticking p{
+    line-height: 19px !important;
 }
 .sticking .field {
     position: relative;
@@ -849,7 +852,7 @@ ul.tab_3_icns li .icns_tab_3, ul.tab_3_icns li .radio {
 }
 .sfsi_widget
 {
-	min-height: 55px;
+	min-height: 55px;	
 }
 .sfsi_widget a img {
     box-shadow: none!important;
@@ -1045,7 +1048,7 @@ a.addthis_button_compact {
     background: #f1f1f1;
 }
 #accordion {
-    margin-top: 4px;
+    margin-top: 25px;
 }
 .main_contant p>a, .tab1 p span {
     font-family: helveticabold;
@@ -2032,8 +2035,8 @@ ul.SFSI_instructions li {
     margin: 0!important;
     padding: 0 0 0 15px!important;
     width: 100%}
-
-/*{Monad}*/
+	
+/*{Monad}*/	
 /*Upload Skins css*/
 .cstmskin_popup
 {
@@ -2047,7 +2050,7 @@ ul.SFSI_instructions li {
     height: auto;
 	float: left;
 	position: relative;
-	left: 35%;
+	left: 35%;	
 }
 .cstomskins_wrpr {
     float: left;
@@ -2195,7 +2198,7 @@ ul.cstmskin_iconlist {
 	min-height: 20px;
 }
 .sf_google > div
-{
+{ 
 	float: left !important;
 }
 .sfsi_socialwpr .sf_addthis
@@ -2255,7 +2258,7 @@ ul.cstmskin_iconlist {
 {
 	background: none repeat scroll 0 0 #e5e5e5;
 	float: left;
-	padding: 5px 10px 8px;
+	padding: 5px 10px 8px;	
 	margin-top: 25px;
 }
 .sfsinewplgndesc>.clear>a

@@ -40,11 +40,10 @@
 				<div class="group no-shadow">
 				
 				<?php 	
-					$options = get_option( 'alm_settings' );
-					
+					$options = get_option( 'alm_settings' );					
 					if(!isset($options['_alm_theme_repeaters_dir'])) 
 						$options['_alm_theme_repeaters_dir'] = 'alm_templates';
-					      	         
+											      	         
 		         // Get template location
 		         if(is_child_theme()){
 	            	$dir = get_stylesheet_directory() . '/' . $options['_alm_theme_repeaters_dir']; 		      	         
@@ -52,13 +51,11 @@
 	            	$dir = get_template_directory() . '/' . $options['_alm_theme_repeaters_dir']; 
 		         } 
 	                
-	            $count = 0;
-	            
+	            $count = 0;	            
 	            foreach (glob($dir.'/*') as $file) { 
 	               $count++;                     
 	               $file = realpath($file);
-	               $link = substr($file, strlen($dir) + 1);             
-	              
+	               $link = substr($file, strlen($dir) + 1);
 	               $file_extension = strtolower(substr(basename($file), strrpos(basename($file), '.') + 1));
 	               $file_directory = get_option('stylesheet') .'/'. strtolower(substr(basename($dir), strrpos(basename($dir), '/')));
 	               
@@ -179,7 +176,7 @@
 									if(!$local_template){										
 										// Add Label
 										echo '<label class="template-title" for="template-default">';
-										_e('Enter the HTML and PHP code for the default template', 'ajax-load-more');
+										   _e('Enter the HTML and PHP code for the default template', 'ajax-load-more');
 										echo ':</label>';
 										
 										// Layouts - Template Selection
@@ -313,7 +310,7 @@
 	                                    btn.removeClass('saving');
 											   });
 	
-											}, 4500);
+											}, 3000);
 	
 										},
 										error: function(xhr, status, error) {

@@ -9,7 +9,7 @@
 *  @since 3.1.0
 */
 function alm_masonry_before($transition){
-	return ($transition === 'masonry') ? '<div class="alm-masonry">' : '';
+	return ($transition === 'masonry') ? '<div class="alm-masonry" style="opacity: 0;">' : '';
 }
 add_filter('alm_masonry_before', 'alm_masonry_before');
 
@@ -42,27 +42,9 @@ function alm_progress_css($counter, $progress_bar, $progress_bar_color){
 	if($counter == 1 && $progress_bar === 'true'){
 		$style = '
 <style>
-.pace {
-	-webkit-pointer-events: none;
-	pointer-events: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-}
-.pace-inactive {
-	display: none;
-}
-.pace .pace-progress {
-	background: #'. $progress_bar_color .';
-	position: fixed;
-	z-index: 2000;
-	top: 0;
-	right: 100%;
-	width: 100%;
-	height: 5px;
-	-webkit-box-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
-	box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
-}
+.pace { -webkit-pointer-events: none; pointer-events: none; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+.pace-inactive { display: none; }
+.pace .pace-progress { background: #'. $progress_bar_color .'; position: fixed; z-index: 2000; top: 0; right: 100%; width: 100%; height: 5px; -webkit-box-shadow: 0 0 3px rgba(255, 255, 255, 0.3); box-shadow: 0 0 2px rgba(255, 255, 255, 0.3); }
 </style>';
 		return $style;
 	}
@@ -85,8 +67,8 @@ function alm_css_disabled($setting) {
 	$disabled = true;
 	if(!isset($options[$setting]) || $options[$setting] != '1'){
 		$disabled = false;
-	}	
-	return $disabled;	
+	}
+	return $disabled;
 }
 
 
@@ -106,8 +88,8 @@ function alm_do_inline_css($setting) {
 	$inline = false;
 	if(!isset($options[$setting]) || $options[$setting] === '1'){
 		$inline = true;
-	}	
-	return $inline;	
+	}
+	return $inline;
 }
 
 
@@ -116,8 +98,12 @@ function alm_do_inline_css($setting) {
 *  alm_get_current_repeater
 *  Get the current repeater template file
 *
+*  @param string $repeater current repater name
+*  @param string $type Type of template
+*
 *  @return $include (file path)
 *  @since 2.5.0
+*  @updated 3.5.1
 */
 
 function alm_get_current_repeater($repeater, $type) {
@@ -125,7 +111,7 @@ function alm_get_current_repeater($repeater, $type) {
 	$template = $repeater;
 	$include = '';
 
-	// If is Custom Repeaters (Custom Repeaters v1)
+	// Custom Repeaters v1
 	if( $type == 'repeater' && has_action('alm_repeater_installed' )){
 		$include = ALM_REPEATER_PATH . 'repeaters/'. $template .'.php';
 
@@ -134,34 +120,44 @@ function alm_get_current_repeater($repeater, $type) {
 		}
 
 	}
-   // If is Unlimited Repeaters (Custom Repeaters v2)
+	
+   // Custom Repeaters v2
 	elseif( $type == 'template_' && has_action('alm_unlimited_installed' )){
-		global $wpdb;
-		$blog_id = $wpdb->blogid;
-
-		if($blog_id > 1){
-			$include = ALM_UNLIMITED_PATH. 'repeaters/'. $blog_id .'/'.$template .'.php';
-		}else{
-			$include = ALM_UNLIMITED_PATH. 'repeaters/'.$template .'.php';
+   	
+   	
+   	// Custom Repeaters 2.5+
+   	if(ALM_UNLIMITED_VERSION >= '2.5'){
+      	
+      	// Get path to repeater (alm_templates)
+			$base_dir = AjaxLoadMore::alm_get_repeater_path();
+			$include = $base_dir .'/'. $template .'.php';
+      	
+   	} else {
+      	
+   		global $wpdb;
+   		$blog_id = $wpdb->blogid;
+   		
+   		$include = ($blog_id > 1) ? ALM_UNLIMITED_PATH. 'repeaters/'. $blog_id .'/'. $template .'.php' : ALM_UNLIMITED_PATH. 'repeaters/'. $template .'.php';
+   		
 		}
 
 		if(!file_exists($include)){ //confirm file exists
 		   $include = alm_get_default_repeater();
 		}
 	}
+	
 	// Default repeater
 	else{
 		$include = alm_get_default_repeater();
 	}
 
 	// Security check
-	// check if $template contains relative path. So, set include to default
+	// Confirm $template does NOT contains relative path
 	if ( false !== strpos( $template, './' ) ) {
 	   $include = alm_get_default_repeater();
 	}
 
 	return $include;
-
 }
 
 
@@ -200,14 +196,9 @@ function alm_get_default_repeater() {
 	}
 
 	// Since 2.0
-	// otherwise use pre-defined plug-in templates
+	// Updated 3.5
 	if($file == null){
-		$blog_id = $wpdb->blogid;
-		if($blog_id > 1){
-			$file = ALM_PATH. 'core/repeater/'. $blog_id .'/default.php'; // File
-		}else{
-			$file = ALM_PATH. 'core/repeater/default.php';
-		}
+   	$file = AjaxLoadMore::alm_get_repeater_path() .'/default.php';
 	}
 
 	return $file;

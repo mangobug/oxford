@@ -283,8 +283,7 @@
          <div class="wrap">
             <div class="inner">
 	            <select class="alm_element transition" name="transition">
-                  <option value="fade" selected="selected"><?php _e('Fade', 'ajax-load-more'); ?></option>
-                  <option value="slide"><?php _e('Slide', 'ajax-load-more'); ?></option>
+                  <option value="fade" selected="selected"><?php _e('Fade In', 'ajax-load-more'); ?></option>
                   <option value="masonry"><?php _e('Masonry', 'ajax-load-more'); ?></option>
                   <option value="none"><?php _e('None', 'ajax-load-more'); ?></option>
                </select>
@@ -312,6 +311,21 @@
 	   		 <div class="wrap">
 	            <div class="inner">
 	               <input type="text" class="alm_element" name="masonry-item" id="masonry-item" placeholder=".grid-item">
+	            </div>
+	         </div>
+	         
+	         <div class="clear"></div>
+	         <hr class="indented" />
+
+	         <div class="section-title">
+	            <h4><?php _e('Column Width', 'ajax-load-more'); ?> <a href="javascript:void(0)" class="fa fa-question-circle tooltip" title="<?php _e('If columnWidth is not set, Masonry will use the outer width of the first Item Selector','ajax-load-more'); ?>."></a></h4>
+	   		 	<p><?php _e('Enter the <a href="https://masonry.desandro.com/options.html#columnwidth" target="_blank">columnWidth</a> of the masonry items', 'ajax-load-more'); ?>.<br/>
+	   		 	e.g <span>80</span>
+	   		 	</p>
+	   		 </div>
+	   		 <div class="wrap">
+	            <div class="inner">
+	               <input type="number" class="alm_element numbers-only" name="masonry-columnwidth" id="masonry-columnwidth" placeholder="80" min="0" step="1">
 	            </div>
 	         </div>
 	         
@@ -426,19 +440,6 @@
 	         
          </div>
          <!-- End Hide transition_container if Masonry is selected -->     
-
-         <div class="clear"></div>
-         <hr>
-
-         <div class="section-title">
-            <h4><?php _e('Speed', 'ajax-load-more'); ?> <a href="javascript:void(0)" class="fa fa-question-circle tooltip" title="<?php _e('0.5 seconds = 500, 1 second = 1000 etc','ajax-load-more'); ?>."></a></h4>
-   		 	<p><?php _e('The speed of the loading transition in milliseconds', 'ajax-load-more'); ?>.<br/></p>
-   		 </div>
-         <div class="wrap">
-            <div class="inner">
-               <input type="number" class="alm_element numbers-only" name="transition-speed" id="transition-speed" step="50" min="50" value="250">
-            </div>
-         </div>
 
       </div>
    </div>

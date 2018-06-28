@@ -7,35 +7,29 @@ Text Domain: ajax-load-more
 Author: Darren Cooney
 Twitter: @KaptonKaos
 Author URI: https://connekthq.com
-Version: 3.4.1
+Version: 3.5.1
 License: GPL
 Copyright: Darren Cooney & Connekt Media
 */
 
 
-
-define('ALM_VERSION', '3.4.1');
-define('ALM_RELEASE', 'February 22, 2018');
+define('ALM_VERSION', '3.5.1');
+define('ALM_RELEASE', 'June 20, 2018');
 define('ALM_STORE_URL', 'https://connekthq.com');
 
 
 
 /*
 *  alm_install
-*
-*  Activation hook
-*  Create table for storing repeater
+*  Activation hook - Create table & repeater
 *
 *  @since 2.0.0
 */
 
 function alm_install($network_wide) {
-
    global $wpdb;
 	add_option( "alm_version", ALM_VERSION ); // Add to WP Option tbl
-
    if ( is_multisite() && $network_wide ) {
-
       // Get all blogs in the network and activate plugin on each one
       $blog_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
       foreach ( $blog_ids as $blog_id ) {
@@ -46,7 +40,6 @@ function alm_install($network_wide) {
    } else {
       alm_create_table();
    }
-
 }
 register_activation_hook( __FILE__, 'alm_install' );
 add_action( 'wpmu_new_blog', 'alm_install' );
@@ -55,10 +48,10 @@ add_action( 'wpmu_new_blog', 'alm_install' );
 
 /*
 *  alm_create_table
-*
 *  Create new table and repeater template
 *
 *  @since 2.0.0
+*  @updated 3.5
 */
 function alm_create_table(){
 
@@ -66,29 +59,21 @@ function alm_create_table(){
 	$table_name = $wpdb->prefix . "alm";
 	$blog_id = $wpdb->blogid;
 
-	$defaultRepeater = '<li <?php if (!has_post_thumbnail()) { ?> class="no-img"<?php } ?>><?php if ( has_post_thumbnail() ) { the_post_thumbnail(\'alm-thumbnail\');}?><h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3><p class="entry-meta"><?php the_time("F d, Y"); ?></p><?php the_excerpt(); ?></li>';
+	$defaultRepeater = '<li <?php if (!has_post_thumbnail()) { ?> class="no-img"<?php } ?>>'. PHP_EOL .'   <?php if ( has_post_thumbnail() ) { the_post_thumbnail(\'alm-thumbnail\'); }?>'. PHP_EOL .'   <h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>'. PHP_EOL .'   <p class="entry-meta"><?php the_time("F d, Y"); ?></p>'. PHP_EOL .'   <?php the_excerpt(); ?>'. PHP_EOL .'</li>';
 
-	/* MULTISITE */
-   /* if this is a multisite blog and it's not id = 1, create default template */
-   if($blog_id > 1){
+   // Create Base Repeater Directory
+   $base_dir = AjaxLoadMore::alm_get_repeater_path();
+   AjaxLoadMore::alm_mkdir($base_dir);
 
-	   $dir = ALM_PATH. 'core/repeater/'. $blog_id;
-	   if( !is_dir($dir) ){
-	      mkdir($dir);
-	   }
-
-	   $file = ALM_PATH. 'core/repeater/'. $blog_id .'/default.php';
-   	if( !file_exists($file) ){
-         $tmp = fopen($file, 'w');
-			$w = fwrite($tmp, $defaultRepeater);
-			fclose($tmp);
-   	}
-
+   $file = $base_dir .'/default.php';
+	if( !file_exists($file) ){
+      $tmp = fopen($file, 'w+');
+		$w = fwrite($tmp, $defaultRepeater);
+		fclose($tmp);
 	}
 
-	//Create table, if it doesn't already exist.
+	//C reate table, if it doesn't already exist.
 	if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
-
 		$sql = "CREATE TABLE $table_name (
 			id mediumint(9) NOT NULL AUTO_INCREMENT,
 			name text NOT NULL,
@@ -99,12 +84,9 @@ function alm_create_table(){
 		);";
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
-
-		//Insert the default data in created table
+		// Insert the default data in created table
 		$wpdb->insert($table_name , array('name' => 'default', 'repeaterDefault' => $defaultRepeater, 'repeaterType' => 'default', 'pluginVersion' => ALM_VERSION));
-
 	}
-
 }
 
 
@@ -115,7 +97,6 @@ if( !class_exists('AjaxLoadMore') ):
 		static $shortcode_atts = null;
 
    	function __construct(){
-
 
          $this->alm_define_constants();
          $this->alm_includes();
@@ -133,6 +114,45 @@ if( !class_exists('AjaxLoadMore') ):
    		load_plugin_textdomain( 'ajax-load-more', false, dirname(plugin_basename( __FILE__ )).'/lang/'); //load text domain
 
    	}
+
+
+
+   	/*
+      *  alm_get_repeater_base_path
+      *  Get absolute path to repeater directory base
+      *
+      *  Multisite installs directories will be `uploads/sites/{id}/alm_templates`
+      *
+      *  @return $path;
+      *  @since 3.5
+      */
+      public static function alm_get_repeater_path(){
+         $upload_dir = wp_upload_dir();
+         $path = apply_filters( 'alm_repeater_path', $upload_dir['basedir']. '/alm_templates' );
+         return $path;
+      }
+
+
+
+      /*
+      *  alm_mkdir
+      *  Create repeater template directory
+      *
+      *  @since 3.5
+      */
+      public static function alm_mkdir($dir){
+
+	      // Does $dir exist?
+	      if( !is_dir($dir) ) {
+	      	mkdir($dir, 0755);
+
+	      	// Check again after creating it (permission checker)
+		      if( !is_dir($dir) ) {
+			      echo __('Error creating repeater template directory', 'ajax-load-more');
+			      echo ' - '. $dir;
+			   }
+	      }
+      }
 
 
 
@@ -269,9 +289,13 @@ if( !class_exists('AjaxLoadMore') ):
    		wp_register_script( 'ajax-load-more', plugins_url( '/core/dist/js/ajax-load-more.min.js', __FILE__ ), $dependencies,  ALM_VERSION, true );
 
    		// Progress Bar JS
-   		wp_register_script( 'ajax-load-more-progress', plugins_url( '/core/src/js/vendor/pace/pace.min.js', __FILE__ ), 'ajax-load-more',  ALM_VERSION, true );
+   		wp_register_script( 'ajax-load-more-progress', plugins_url( '/vendor/js/pace/pace.min.js', __FILE__ ), 'ajax-load-more',  ALM_VERSION, true );
 
-   		// Load Core CSS
+   		// Masonry JS
+   		wp_register_script( 'ajax-load-more-masonry', plugins_url( '/vendor/js/masonry/masonry.pkgd.min.js', __FILE__ ), 'ajax-load-more',  '4.2.1', true );
+
+
+   		// Core CSS
    		if( !alm_do_inline_css('_alm_inline_css') && !alm_css_disabled('_alm_disable_css')){ // Not inline or disabled
 	         $file = plugins_url('/core/dist/css/'. ALM_SLUG .'.min.css', __FILE__ );
 	         ALM_ENQUEUE::alm_enqueue_css(ALM_SLUG, $file);
@@ -338,6 +362,11 @@ if( !class_exists('AjaxLoadMore') ):
    	public function alm_query_posts() {
 
    		$options = get_option( 'alm_settings' );
+
+   		// WPML fix for category/tag/taxonomy archives
+			if ( (isset( $_GET['category'] ) && $_GET['category']) || (isset($_GET['taxonomy']) && $_GET['taxonomy']) ) {
+				unset($_REQUEST['post_id']);
+			}
 
    		$id = (isset($_GET['id'])) ? $_GET['id'] : '';
    		$post_id = (isset($_GET['post_id'])) ? $_GET['post_id'] : '';
@@ -670,6 +699,8 @@ if( !class_exists('AjaxLoadMore') ):
                $acf_post_ids = get_field($acf_field_name, $acf_post_id); // Get field value from ACF
                if($acf_post_ids){
                   $args['post__in'] = $acf_post_ids;
+               } else {
+                  $args['post__in'] = array(0);
                }
             }
          }

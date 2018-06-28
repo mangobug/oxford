@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sassy Social Share\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-30 12:53+0530\n"
-"PO-Revision-Date: 2018-01-30 12:53+0530\n"
+"POT-Creation-Date: 2018-05-20 05:58+0530\n"
+"PO-Revision-Date: 2018-05-20 05:58+0530\n"
 "Last-Translator: Team Heateor <hello@heateor.com>\n"
 "Language-Team: Heateor <hello@heateor.com>\n"
 "Language: en_IN\n"
@@ -64,21 +64,33 @@ msgstr ""
 msgid "Dismiss this notice"
 msgstr ""
 
-#: ../admin/class-sassy-social-share-admin.php:445
+#: ../admin/class-sassy-social-share-admin.php:457
 msgid ""
 "Update \"Social Share myCRED Integration\" add-on for maximum compatibility "
 "with current version of Sassy Social Share"
 msgstr ""
 
-#: ../admin/class-sassy-social-share-admin.php:460
+#: ../admin/class-sassy-social-share-admin.php:481
+#, php-format
+msgid ""
+"This plugin is GDPR compliant. You need to update the privacy policy of your "
+"website regarding the personal data this plugin saves, as mentioned <a href="
+"\"%s\" target=\"_blank\">here</a>"
+msgstr ""
+
+#: ../admin/class-sassy-social-share-admin.php:481
+msgid "Okay"
+msgstr ""
+
+#: ../admin/class-sassy-social-share-admin.php:497
 msgid "Add-Ons"
 msgstr ""
 
-#: ../admin/class-sassy-social-share-admin.php:461
+#: ../admin/class-sassy-social-share-admin.php:498
 msgid "Support Documentation"
 msgstr ""
 
-#: ../admin/class-sassy-social-share-admin.php:462
+#: ../admin/class-sassy-social-share-admin.php:499
 msgid "Settings"
 msgstr ""
 

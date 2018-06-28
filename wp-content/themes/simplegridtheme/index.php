@@ -90,13 +90,13 @@
         </div><!--//load_posts_container-->
 
         <div class="container">
-
+          <?php if ($query_products->max_num_pages > 1) { ?>
           <div class="load_more_cont">
 
               <p align="center"><span class="load_more_text"><?php next_posts_link('LOAD MORE', $query_products->max_num_pages) ?></span></p>
 
           </div><!--//load_more_cont-->
-
+          <?php } ?>
 
           <div class="clear"></div>
 

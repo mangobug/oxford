@@ -1,7 +1,8 @@
 <div class="cta">
 	<h3><?php _e('Other Plugins', 'ajax-load-more'); ?></h3>
 	<div class="cta-inner">
-   	<ul class="project-listing">
+   	<ul class="project-listing"><!--
+
    		<li>
       		<a target="blank" href="https://connekthq.com/plugins/broadcast/">
       		   <img src="<?php echo ALM_ADMIN_URL; ?>img/logos/broadcast-48x48.png" alt="">
@@ -9,6 +10,7 @@
       		   <span>Manage and display WordPress call to actions with Broadcast.</span>
       		</a>
          </li> 
+-->
    		<li>
       		<a target="blank" href="https://connekthq.com/plugins/easy-query/">
       		   <img src="<?php echo ALM_ADMIN_URL; ?>img/logos/eq-48x48.png" alt="">

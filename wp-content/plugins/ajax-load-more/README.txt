@@ -1,10 +1,10 @@
 === WordPress Infinite Scroll - Ajax Load More ===
 Contributors: dcooney, connekthq
 Donate link: https://connekthq.com/donate/
-Tags: infinite scroll, infinite scrolling, scroll, infinite, lazy load, lazy loading, endless scroll, pagination, ajax pagination, ajax, ajax posts, ajax load posts, woocommerce, ajax load more
+Tags: infinite scroll, infinite scrolling, scroll, infinite, lazy load, lazy loading, endless scroll, pagination, ajax pagination, ajax, ajax posts, woocommerce, ajax load more, masonry
 Requires at least: 3.6
-Tested up to: 4.9.4
-Stable tag: 3.4.1
+Tested up to: 4.9.6
+Stable tag: 3.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,8 +107,7 @@ Ajax Load More accepts a number of parameters that are passed to the WordPress q
 *   **max_pages** - Maximum number of pages to load while user is scrolling (activated on when scroll = true). Default = '0'
 *   **pause_override** - Allow scrolling to override the Pause parameter and trigger the loading of posts on scroll. Default = null
 *   **pause** - Do not load posts until user clicks the Load More button (true/false). Default = 'false'
-*   **transition** - Choose a posts reveal transition (slide/fade/masonry/none). Default = 'slide'
-*   **transition_speed** - The speed of the loading transition in milliseconds. (slide/fade/none). Default = '250'
+*   **transition** - Choose a posts reveal transition (fade/masonry/none). Default = 'fade'
 *   **transition_container** - Display the Ajax Load More (.alm-reveal) loading container. Default = 'true'
 *   **transition_container_classes** - Add classes to the `.alm-reveal` transition div.
 *   **masonry_selector** - The target classname of each masonry item. Default = null
@@ -369,6 +368,36 @@ How to install Ajax Load More.
 
 
 == Changelog ==
+
+
+= 3.5.1 - June 20, 2018 =
+* NEW - Adding `columnWidth` support for Masonry.
+* NEW - Adding support and backwards compatibility for Custom Repeaters < v2.5
+* UPDATE - Added `transition_container_classes` parameter option to .alm-paging-content div for paging add-on.
+* FIX - Added fix for WPML taxonomy archive pages.
+* FIX - Fixed issue with `transition_container="false"` and new loading transition.
+* FIX - Updated ACF Relationship field function to return null if field is not present on the post ID page.
+
+
+= 3.5.0 - April 17, 2018 =
+### Notice
+This Ajax Load More update contains a major change to how the default repeater template is saved and displayed.
+On update, your default repeater template will be moved from `/plugins/ajax-load-more/core/repeater` to an `alm_templates`  directory created within `/wp-content/uploads`.
+This is a long overdue enhancement to the plugin and I highly recommend you backup your site (or Repeater Template at least) prior to updating Ajax Load More incase permission issues occur during the upgrade process.
+
+* NEW - Updating Ajax Load More loading sequence to help with integration for Adsense and DFP advertisements in Ajax content.
+* NEW - Default Repeater Template now saved and accessed from the `/wp-content/uploads` directory.
+* FIX - Added a fix for WPML users that supports category and tag archives across languages [See issues](https://wpml.org/forums/topic/ajax-load-more-wpml-non-default-languages-not-loading/).
+* FIX - Fixed issue with `destroy_after` not triggering at correct intervals when using [Preloaded add-on](https://connekthq.com/plugins/ajax-load-more/add-ons/preloaded/).
+* FIX - Fixed issue with shortcode parameters not being sent to Ajax Load More for the [Comments add-on](https://connekthq.com/plugins/ajax-load-more/add-ons/comments/).
+* UPDATE - Added support for new [SEO](https://connekthq.com/plugins/ajax-load-more/add-ons/search-engine-optimization/) add-on filter hooks.
+* UPDATE - Updated CSS for the styling list elements. (`.alm-listing > li`)
+* UPDATE - Packaging [Masonry v4.2.1](https://masonry.desandro.com/) in Ajax Load More as core WordPress includes an older version of Masonry that was causing issues with certain features.
+* UPDATE - Simplifying Ajax Load More transition property to allow for feature enhancements (Removed 'slide' transition and jQuery animations).
+* UPDATE - Removing `transition_speed` shortcode parameter and set a globe 1/4 second transition speed for all animations.
+* UPDATE - Various UI/UX enhancements
+* UPDATE - Code cleanup.
+
 
 = 3.4.1 - February 22, 2018 =
 * UPDATE - Added compatibility for Filters + Paging add-ons.

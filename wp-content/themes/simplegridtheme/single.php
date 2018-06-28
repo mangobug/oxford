@@ -72,7 +72,17 @@
         </div>
 
 
-
 <?php get_footer(); ?>
 
 <?php get_footer('mobile'); ?>
+
+<script type="text/javascript">
+  var $ = jQuery.noConflict();
+  $( document ).ready(function() {
+    var div = $( ".relpost-block-container" ).length;
+    console.log(div);
+    if (div == 0) {
+      $( ".related-blog-area" ).css("display", "none");
+    }
+  });
+</script>

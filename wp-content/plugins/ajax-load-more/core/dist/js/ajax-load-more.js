@@ -219,6 +219,7 @@ var alm_is_filtering = false; // Global Masonry/Filtering var
    @param container     object
    @param items         object
    @param selector      string
+   @param columnWidth   string
    @param animation     string
    @param speed         int
    @param masonry_init  boolean
@@ -228,7 +229,7 @@ var alm_is_filtering = false; // Global Masonry/Filtering var
    @updated 3.3.2
 */
 
-var almMasonry = function almMasonry(container, items, selector, animation, horizontalOrder, speed, masonry_init, init, filtering) {
+var almMasonry = function almMasonry(container, items, selector, columnWidth, animation, horizontalOrder, speed, masonry_init, init, filtering) {
 
   var duration = (speed + 100) / 1000 + 's'; // Add 100 for some delay
   var hidden = 'scale(0.5)';
@@ -254,6 +255,18 @@ var almMasonry = function almMasonry(container, items, selector, animation, hori
     visible = 'translateY(0)';
   }
 
+  // Set default columnWidth
+  if (columnWidth) {
+    if (!isNaN(columnWidth)) {
+      // Check if number
+      columnWidth = parseInt(columnWidth);
+    }
+  } else {
+    // No columnWidth, use the selector
+    columnWidth = selector;
+  }
+
+  // Set horizontalOrder
   horizontalOrder = horizontalOrder === 'true' ? true : false;
 
   if (!filtering) {
@@ -261,11 +274,10 @@ var almMasonry = function almMasonry(container, items, selector, animation, hori
     // First Run
     if (masonry_init && init) {
       container.imagesLoaded(function () {
-        items.fadeIn(speed);
         container.masonry({
           itemSelector: selector,
           transitionDuration: duration,
-          columnWidth: selector,
+          columnWidth: columnWidth,
           horizontalOrder: horizontalOrder,
           hiddenStyle: {
             transform: hidden,
@@ -276,16 +288,14 @@ var almMasonry = function almMasonry(container, items, selector, animation, hori
             opacity: 1
           }
         });
-        //container.masonry('reloadItems');
+        almMasonryFadeIn(container[0].parentNode, speed);
       });
     }
 
     // Standard
     else {
-        container.append(items); // Append new items
-        container.imagesLoaded(function () {
-          items.show();
-          container.masonry('appended', items);
+        items.imagesLoaded(function () {
+          container.append(items).masonry('appended', items);
         });
       }
   } else {
@@ -294,6 +304,20 @@ var almMasonry = function almMasonry(container, items, selector, animation, hori
     container.append(items);
     almMasonry(container, items, selector, animation, horizontalOrder, speed, true, true, false);
   }
+};
+
+// Fade in masonry on initial page load
+var almMasonryFadeIn = function almMasonryFadeIn(element, speed) {
+  speed = speed / 10;
+  var op = parseInt(element.style.opacity); // initial opacity
+  var timer = setInterval(function () {
+    if (op > 0.9) {
+      element.style.opacity = 1;
+      clearInterval(timer);
+    }
+    element.style.opacity = op;
+    op += 0.1;
+  }, speed);
 };
 'use strict';
 
@@ -344,6 +368,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       alm.is_search = alm.el.attr('data-search');
       alm.slug = alm.el.attr('data-slug');
       alm.post_id = alm.el.attr('data-post-id');
+      alm.id = alm.el.attr('data-id') ? alm.el.attr('data-id') : '';
 
       alm.repeater = alm.content.attr('data-repeater'); // Repeaters
       alm.theme_repeater = alm.content.attr('data-theme-repeater');
@@ -364,7 +389,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       alm.transition = alm.content.attr('data-transition'); // Transition
       alm.transition_container = alm.content.attr('data-transition-container'); // Transition Container
       alm.tcc = alm.content.attr('data-transition-container-classes'); // Transition Container Classes
-      alm.speed = alm.content.attr('data-transition-speed');
+      alm.speed = 250;
       alm.images_loaded = alm.content.attr('data-images-loaded');
       alm.destroy_after = alm.content.attr('data-destroy-after');
       alm.lang = alm.content.attr('data-lang');
@@ -404,6 +429,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
          // if comments, adjust alm.content wrapper
          alm.content = $('.alm-comments', alm.container);
       }
+      alm.comments_post_id = alm.content.attr('data-comments_post_id'); // current post id
+      alm.comments_per_page = alm.content.attr('data-comments_per_page');
+      alm.comments_type = alm.content.attr('data-comments_type');
+      alm.comments_style = alm.content.attr('data-comments_style');
+      alm.comments_template = alm.content.attr('data-comments_template');
+      alm.comments_callback = alm.content.attr('data-comments_callback');
 
       alm.filters = alm.content.attr('data-filters');
 
@@ -539,7 +570,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       alm.permalink = alm.content.attr('data-seo-permalink');
       alm.pageview = alm.content.attr('data-seo-pageview');
       alm.start_page = alm.content.attr('data-seo-start-page');
-      alm.trailing_slash = alm.content.attr('data-seo-trailing-slash') === 'false' ? '' : '/';
+      alm.seo_trailing_slash = alm.content.attr('data-seo-trailing-slash') === 'false' ? '' : '/';
+      alm.seo_leading_slash = alm.content.attr('data-seo-leading-slash') === 'true' ? '/' : '';
 
       if (alm.start_page) {
          alm.seo_scroll = alm.content.attr('data-seo-scroll');
@@ -668,6 +700,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       if (alm.transition === 'masonry') {
          alm.masonry_init = true;
          alm.masonry_selector = alm.content.attr('data-masonry-selector');
+         alm.masonry_columnwidth = alm.content.attr('data-masonry-columnwidth');
          alm.masonry_animation = alm.content.attr('data-masonry-animation');
          alm.masonry_horizontalorder = alm.content.attr('data-masonry-horizontalorder');
          if (alm.masonry_animation === undefined) {
@@ -683,9 +716,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             alm.is_masonry_preloaded = true;
          }
       }
-
-      /* Speed */
-      alm.speed = alm.speed === undefined || alm.speed === '' ? 250 : parseInt(alm.speed);
 
       /* Scroll */
       if (alm.content.attr('data-scroll') === undefined) {
@@ -826,7 +856,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             };
          }
 
-         // Comment query
+         // Comment Params
          alm.comments_array = '';
          if (alm.comments === 'true') {
             action = 'alm_comments_query';
@@ -842,7 +872,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             };
          }
 
-         // Users query
+         // Users Params
          alm.users_array = '';
          if (alm.users) {
             action = 'alm_users_query';
@@ -857,7 +887,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             };
          }
 
-         // CTA Add-on Query params
+         // CTA Params
          alm.cta_array = '';
          if (alm.cta === 'true') {
             alm.cta_array = {
@@ -961,8 +991,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                      action: action,
                      nonce: alm_localize.alm_nonce,
                      query_type: queryType,
-                     post_id: alm.post_id,
                      id: el.attr('data-id'),
+                     post_id: alm.post_id,
                      slug: alm.slug,
                      canonical_url: alm.canonical_url,
                      cache_id: alm.cache_id,
@@ -1069,6 +1099,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             alm.AjaxLoadMore.getPreviousPost();
          }
 
+         var loadingStyle = 'style="opacity: 0; height: 0;"';
+
          var html, meta, total;
 
          if (is_cache) {
@@ -1103,21 +1135,25 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
                // Is pagination
                if (total > 0) {
-                  alm.el = $('<div class="alm-reveal' + alm.tcc + '"/>');
-                  alm.el.append('<div class="alm-paging-content"></div><div class="alm-paging-loading"></div>');
-                  $('.alm-paging-content', alm.el).append(alm.data).hide();
+                  alm.el = $('<div class="alm-reveal' + alm.tcc + '" ' + loadingStyle + '/>');
+                  alm.el.append('<div class="alm-paging-content' + alm.tcc + '"></div><div class="alm-paging-loading"></div>');
+                  $('.alm-paging-content', alm.el).append(alm.data);
                   alm.content.append(alm.el);
+                  alm.AjaxLoadMore.fadeIn(alm.el.get(0), alm.speed);
                   alm.content.parent().removeClass('loading'); // Remove loading class from main container
                   alm.AjaxLoadMore.resetBtnText();
 
-                  $('.alm-paging-content', alm.el).fadeIn(alm.speed, 'alm_easeInOutQuad', function () {
-                     var paddingT = parseInt(alm.content.css('padding-top')),
-                         paddingB = parseInt(alm.content.css('padding-bottom'));
-                     alm.content.css('height', alm.el.height() + paddingT + paddingB + 'px');
-                     if ($.isFunction($.fn.almFadePageControls)) {
-                        $.fn.almFadePageControls(alm.btnWrap);
-                     }
-                  });
+                  // Delay reveal until paging elements have been added
+                  setTimeout(function () {
+                     $('.alm-paging-content', alm.el).fadeIn(alm.speed, 'alm_easeInOutQuad', function () {
+                        var paddingT = parseInt(alm.content.css('padding-top')),
+                            paddingB = parseInt(alm.content.css('padding-bottom'));
+                        alm.content.css('height', alm.el.height() + paddingT + paddingB + 'px');
+                        if ($.isFunction($.fn.almFadePageControls)) {
+                           $.fn.almFadePageControls(alm.btnWrap);
+                        }
+                     });
+                  }, alm.speed);
                }
             }
 
@@ -1149,8 +1185,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                if (alm.filters) {
 
                   if (alm.filters_startpage) {
-                     // Set new page #
-                     alm.page = alm.filters_startpage - 1;
+
+                     alm.page = alm.filters_startpage - 1; // Set new page #
 
                      // Reset filters-startpage data attr after the first run
                      alm.posts_per_page = alm.content.attr('data-posts-per-page');
@@ -1161,20 +1197,19 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
          if (total > 0) {
 
-            // Results!
+            // We have results!            
+
             if (!alm.paging) {
 
                if (alm.previous_post) {
-                  // If Previous Post, create container and append data
-
-                  alm.el = $('<div class="alm-reveal alm-previous-post post-' + alm.previous_post_id + '" data-id="' + alm.previous_post_id + '" data-title="' + alm.previous_post_title + '" data-url="' + alm.previous_post_permalink + '" data-page="' + alm.page + '"/>');
-                  alm.el.append(alm.data).hide();
+                  // Previous Post, create container and append data
+                  alm.el = $('<div class="alm-reveal alm-previous-post post-' + alm.previous_post_id + '" ' + loadingStyle + ' data-id="' + alm.previous_post_id + '" data-title="' + alm.previous_post_title + '" data-url="' + alm.previous_post_permalink + '" data-page="' + alm.page + '"/>');
+                  alm.el.append(alm.data);
                } else {
 
                   if (!alm.transition_container) {
                      // No transition container
 
-                     alm.data.hide();
                      alm.el = alm.data;
                   } else {
                      // Standard container
@@ -1212,19 +1247,19 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                               if (alm.permalink === 'default') {
                                  div = $('<div class="alm-reveal alm-seo' + alm.tcc + '" data-url="' + alm.canonical_url + '' + alm.search_value + '&paged=' + pagenum + '" data-page="' + pagenum + '" />');
                               } else {
-                                 div = $('<div class="alm-reveal alm-seo' + alm.tcc + '" data-url="' + alm.canonical_url + 'page/' + pagenum + alm.trailing_slash + alm.search_value + '" data-page="' + pagenum + '" />');
+                                 div = $('<div class="alm-reveal alm-seo' + alm.tcc + '" data-url="' + alm.canonical_url + alm.seo_leading_slash + 'page/' + pagenum + alm.seo_trailing_slash + alm.search_value + '" data-page="' + pagenum + '" />');
                               }
                            } else {
                               // First Page
-                              div = $('<div class="alm-reveal alm-seo' + alm.tcc + '"  data-url="' + alm.canonical_url + '' + alm.search_value + '" data-page="1" />');
+                              div = $('<div class="alm-reveal alm-seo' + alm.tcc + '" data-url="' + alm.canonical_url + '' + alm.search_value + '" data-page="1" />');
                            }
 
                            div.append(seo_data[k]);
                            div = $(div); // convert to object
-                           alm.el.append(div).hide(); // Append data to .alm-listing wrapper
+                           alm.el.append(div); // Append data to .alm-listing wrapper
                         }
                      }
-                     // End SEO -- /
+                     // End SEO
 
                      else {
                            // If is SEO and paged OR Preloaded.
@@ -1238,32 +1273,32 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                               if (alm.seo) {
 
                                  if (alm.permalink === 'default') {
-                                    alm.el = $('<div class="alm-reveal alm-seo' + alm.tcc + '" data-url="' + alm.canonical_url + '' + alm.search_value + '&paged=' + pagenum + '" data-page="' + pagenum + '" />');
+                                    alm.el = $('<div class="alm-reveal alm-seo' + alm.tcc + '" ' + loadingStyle + ' data-url="' + alm.canonical_url + '' + alm.search_value + '&paged=' + pagenum + '" data-page="' + pagenum + '" />');
                                  } else {
-                                    alm.el = $('<div class="alm-reveal alm-seo' + alm.tcc + '" data-url="' + alm.canonical_url + 'page/' + pagenum + alm.trailing_slash + alm.search_value + '" data-page="' + pagenum + '" />');
+                                    alm.el = $('<div class="alm-reveal alm-seo' + alm.tcc + '" ' + loadingStyle + ' data-url="' + alm.canonical_url + alm.seo_leading_slash + 'page/' + pagenum + alm.seo_trailing_slash + alm.search_value + '" data-page="' + pagenum + '" />');
                                  }
                               } else if (alm.filters) {
                                  // Filters
-                                 alm.el = $('<div class="alm-reveal alm-filters' + alm.tcc + '" data-url="' + alm.canonical_url + '' + querystring + '" data-page="' + pagenum + '" />');
+                                 alm.el = $('<div class="alm-reveal alm-filters' + alm.tcc + '" ' + loadingStyle + ' data-url="' + alm.canonical_url + '' + querystring + '" data-page="' + pagenum + '" />');
                               } else {
                                  // Basic ALM
-                                 alm.el = $('<div class="alm-reveal' + alm.tcc + '" />');
+                                 alm.el = $('<div class="alm-reveal' + alm.tcc + '" ' + loadingStyle + ' />');
                               }
                            } else if (alm.filters) {
                               // Filters
-                              alm.el = $('<div class="alm-reveal alm-filters' + alm.tcc + '" data-url="' + alm.canonical_url + '' + querystring + '" data-page="' + (alm.page + 1) + '" />');
+                              alm.el = $('<div class="alm-reveal alm-filters' + alm.tcc + '" ' + loadingStyle + ' data-url="' + alm.canonical_url + '' + querystring + '" data-page="' + (alm.page + 1) + '" />');
                            } else {
 
                               if (alm.seo) {
                                  // SEO [Page 1]
-                                 alm.el = $('<div class="alm-reveal alm-seo' + alm.tcc + '" data-url="' + alm.canonical_url + '' + alm.search_value + '" data-page="1" />');
+                                 alm.el = $('<div class="alm-reveal alm-seo' + alm.tcc + '" ' + loadingStyle + ' data-url="' + alm.canonical_url + '' + alm.search_value + '" data-page="1" />');
                               } else {
                                  // Basic ALM
-                                 alm.el = $('<div class="alm-reveal' + alm.tcc + '" />');
+                                 alm.el = $('<div class="alm-reveal' + alm.tcc + '" ' + loadingStyle + ' />');
                               }
                            }
 
-                           alm.el.append(alm.data).hide();
+                           alm.el.append(alm.data);
                         }
                   }
                }
@@ -1274,87 +1309,35 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                   alm.content.append(alm.el);
                }
 
-               // Transition
-               if (alm.transition === 'fade') {
-                  // Fade
-                  if (alm.images_loaded === 'true') {
-                     alm.el.almWaitForImages().done(function () {
-                        alm.el.fadeIn(alm.speed, 'alm_easeInOutQuad', function () {
-                           alm.loading = false;
-                           if (!alm.paging) {
-                              alm.button.delay(alm.speed).removeClass('loading');
-                              alm.AjaxLoadMore.resetBtnText();
-                           }
-                           alm.container.removeClass('alm-loading');
-                           alm.AjaxLoadMore.triggerAddons(alm);
-                        });
-                     });
-                  } else {
-                     alm.el.fadeIn(alm.speed, 'alm_easeInOutQuad', function () {
-                        alm.loading = false;
-                        if (!alm.paging) {
-                           alm.button.delay(alm.speed).removeClass('loading');
-                           alm.AjaxLoadMore.resetBtnText();
-                        }
-                        alm.container.removeClass('alm-loading');
-                        alm.AjaxLoadMore.triggerAddons(alm);
-                     });
-                  }
-               } else if (alm.transition === 'masonry') {
-                  // Masonry
+               // Transitions
 
-                  almMasonry(alm.masonry_wrap, alm.el, alm.masonry_selector, alm.masonry_animation, alm.masonry_horizontalorder, alm.speed, alm.masonry_init, alm.init, alm_is_filtering);alm.masonry_init = false;
-
-                  if (!alm.paging) {
-                     alm.button.delay(alm.speed).removeClass('loading');
-                     alm.AjaxLoadMore.resetBtnText();
-                  }
-                  alm.loading = false;
-                  alm.container.removeClass('alm-loading');
-                  alm.AjaxLoadMore.triggerAddons(alm);
-               } else if (alm.transition === 'none') {
-                  // None
-                  if (alm.images_loaded === 'true') {
-                     alm.el.almWaitForImages().done(function () {
-                        alm.el.show();
-                        alm.AjaxLoadMore.triggerAddons(alm);
-                     });
-                  } else {
-                     alm.el.show();
-                     alm.AjaxLoadMore.triggerAddons(alm);
-                  }
-                  alm.loading = false;
-                  if (!alm.paging) {
-                     alm.button.delay(alm.speed).removeClass('loading');
-                     alm.AjaxLoadMore.resetBtnText();
-                  }
-               } else {
-                  // Slide
-                  if (alm.images_loaded === 'true') {
-                     alm.el.almWaitForImages().done(function () {
-                        alm.el.slideDown(alm.speed, 'alm_easeInOutQuad', function () {
-                           alm.loading = false;
-                           if (!alm.paging) {
-                              alm.button.delay(alm.speed).removeClass('loading');
-                              alm.AjaxLoadMore.resetBtnText();
-                           }
-                           alm.container.removeClass('alm-loading');
-                           alm.AjaxLoadMore.triggerAddons(alm);
-                        });
-                     });
-                  } else {
-                     alm.el.slideDown(alm.speed, 'alm_easeInOutQuad', function () {
-                        alm.loading = false;
-                        if (!alm.paging) {
-                           alm.button.delay(alm.speed).removeClass('loading');
-                           alm.AjaxLoadMore.resetBtnText();
-                        }
-                        alm.container.removeClass('alm-loading');
-                        alm.AjaxLoadMore.triggerAddons(alm);
-                     });
-                  }
+               // Masonry
+               if (alm.transition === 'masonry') {
+                  almMasonry(alm.masonry_wrap, alm.el, alm.masonry_selector, alm.masonry_columnwidth, alm.masonry_animation, alm.masonry_horizontalorder, alm.speed, alm.masonry_init, alm.init, alm_is_filtering);
+                  alm.masonry_init = false;
+                  alm.AjaxLoadMore.transitionEnd();
                }
-               // End Transition
+               // None
+               else if (alm.transition === 'none') {
+                     alm.AjaxLoadMore.fadeIn(alm.el.get(0), 0);
+                     alm.AjaxLoadMore.transitionEnd();
+                  }
+                  // Fade transition
+                  else {
+                        if (alm.images_loaded === 'true') {
+                           alm.el.almWaitForImages().done(function () {
+                              if (alm.transition_container) {
+                                 alm.AjaxLoadMore.fadeIn(alm.el.get(0), alm.speed);
+                              }
+                              alm.AjaxLoadMore.transitionEnd();
+                           });
+                        } else {
+                           if (alm.transition_container) {
+                              alm.AjaxLoadMore.fadeIn(alm.el.get(0), alm.speed);
+                           }
+                           alm.AjaxLoadMore.transitionEnd();
+                        }
+                     }
             } else {
 
                // Paging
@@ -1415,18 +1398,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
          // Destroy After
          if (alm.destroy_after !== undefined && alm.destroy_after !== '') {
             var currentPage = alm.page + 1; // Add 1 because alm.page starts at 0
-            if (alm.preload) {
+            if (alm.preloaded === 'true') {
+               // Add 1 for preloaded
                currentPage++;
             }
             if (currentPage == alm.destroy_after) {
-               // - Disable ALM is page = alm.destroy_after value
-               alm.disable_ajax = true;
-               if (!alm.paging) {
-                  alm.button.delay(alm.speed).fadeOut(alm.speed);
-                  if ($.isFunction($.fn.almDestroyed)) {
-                     $.fn.almDestroyed(alm);
-                  }
-               }
+               // Disable ALM if page = alm.destroy_after val
+               alm.AjaxLoadMore.destroyed();
             }
          }
          // End Destroy After
@@ -1465,10 +1443,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                $.fn.almEmpty(alm);
             }
          }
-
-         if ($.isFunction($.fn.almFadePageControls)) {
-            $.fn.almFadePageControls(alm.btnWrap);
-         }
+         // Delay to avoid positioning issues
+         setTimeout(function () {
+            if ($.isFunction($.fn.almFadePageControls)) {
+               $.fn.almFadePageControls(alm.btnWrap);
+            }
+         }, alm.speed);
       };
 
       /*  pagingNextpageInit()
@@ -1494,7 +1474,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             $.fn.almSetNextPageVars(alm); // Next Page Add-on
          }
 
-         // Delay the following to avoid positioning
+         // Delay to avoid positioning issues
          setTimeout(function () {
             if ($.isFunction($.fn.almFadePageControls)) {
                $.fn.almFadePageControls(alm.btnWrap); // Paging Add-on
@@ -1503,10 +1483,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             if ($.isFunction($.fn.almOnWindowResize)) {
                $.fn.almOnWindowResize(alm); // Paging Add-on
             }
-         }, 200);
+         }, alm.speed);
       };
 
-      /*  getPreviousPost()
+      /*  fetchingPreviousPost()
        *
        *  Get the previous post ID via ajax
        *  @since 2.7.4
@@ -1552,9 +1532,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
          });
       };
 
-      /*  loadComplete()
+      /*  triggerAddons()
        *
-       *  Fires various add-on functions (if available) after load complete.
+       *  Triggers various add-on functions (if available) after load complete.
        *  @since 2.14.0
        */
       alm.AjaxLoadMore.triggerAddons = function (alm) {
@@ -1591,11 +1571,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
        *  @since 2.8.4
        */
       alm.AjaxLoadMore.resetBtnText = function () {
-         if (alm.button_loading_label !== false) {
+         if (alm.button_loading_label !== false && !alm.paging) {
             // Reset button text
-            if (!alm.paging) {
-               alm.button.html(alm.button_label);
-            }
+            alm.button.html(alm.button_label);
          }
       };
 
@@ -1664,7 +1642,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             }
             this.resizeTO = setTimeout(function () {
                $(this).trigger('resizeEnd');
-            }, 250);
+            }, alm.speed);
          });
       }
 
@@ -1723,12 +1701,73 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
          });
       }
 
+      /*  Destroy Ajax load More
+       *
+       *  Destroy Ajax Load More functionality
+       *  @since 3.4.2
+       */
+      alm.AjaxLoadMore.destroyed = function () {
+         alm.disable_ajax = true;
+         if (!alm.paging) {
+            alm.button.delay(alm.speed).fadeOut(alm.speed);
+            if ($.isFunction($.fn.almDestroyed)) {
+               $.fn.almDestroyed(alm);
+            }
+         }
+      };
+
+      /*  Fade in helper
+       *
+       *  Fade in elements after an Ajax call
+       *  @since 3.5 
+       */
+      alm.AjaxLoadMore.fadeIn = function (element, speed) {
+         if (speed == 0) {
+            element.style.opacity = 1;
+            element.style.height = 'auto';
+         } else {
+            speed = speed / 10;
+            var op = 0; // initial opacity
+            var timer = setInterval(function () {
+               if (op > 0.9) {
+                  element.style.opacity = 1;
+                  clearInterval(timer);
+               }
+               element.style.opacity = op;
+               op += 0.1;
+            }, speed);
+            element.style.height = 'auto';
+         }
+      };
+
+      /*  Transition End 
+      *
+      *  Set variables after loading transiton completes
+      *  @since 3.5 
+      */
+      alm.AjaxLoadMore.transitionEnd = function () {
+         setTimeout(function () {
+            alm.loading = false;
+            alm.container.removeClass('alm-loading');
+            alm.AjaxLoadMore.triggerAddons(alm);
+            if (!alm.paging) {
+               alm.button.delay(alm.speed).removeClass('loading');
+               alm.AjaxLoadMore.resetBtnText();
+            }
+         }, alm.speed);
+      };
+
       /*  Init Ajax load More
        *
        *  Load posts as user scrolls the page
        *  @since 2.0 
        */
       alm.AjaxLoadMore.init = function () {
+
+         // Preloaded and destroy_after is 1  
+         if (alm.preloaded === 'true' && alm.destroy_after == 1) {
+            alm.AjaxLoadMore.destroyed();
+         }
 
          if (!alm.paging && !alm.previous_post) {
             if (alm.disable_ajax) {
@@ -1757,7 +1796,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                if ($.isFunction($.fn.almSEO) && alm.start_page < 1) {
                   $.fn.almSEO(alm, true);
                }
-            }, 150);
+            }, alm.speed);
          }
 
          // Preloaded
@@ -1774,7 +1813,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
                      $.fn.almEmpty(alm);
                   }
                }
-            }, 150);
+            }, alm.speed);
          }
 
          // Next Page Add-on
@@ -1794,7 +1833,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
          // Masonry + Preloaded
          alm.window.bind('load', function () {
             if (alm.is_masonry_preloaded) {
-               almMasonry(alm.masonry_wrap, alm.el, alm.masonry_selector, alm.masonry_animation, alm.masonry_horizontalorder, alm.speed, alm.masonry_init, true, false);
+               almMasonry(alm.masonry_wrap, alm.el, alm.masonry_selector, alm.masonry_columnwidth, alm.masonry_animation, alm.masonry_horizontalorder, alm.speed, alm.masonry_init, true, false);
                alm.masonry_init = false;
             }
          });
@@ -1804,7 +1843,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       //flag to prevent unnecessary loading of post on init. Hold for 2/10 of a second
       setTimeout(function () {
          alm.proceed = true;
-      }, 200);
+      }, 150);
 
       /*  $.fn.almUpdateCurrentPage()
        *
@@ -1832,7 +1871,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
             data = $('.alm-preloaded .alm-reveal', alm.el).html(); // Content of preloaded page
             $('.alm-preloaded', alm.el).remove();
             alm.preloaded_amount = 0; // Reset
-            //alm.AjaxLoadMore.success(data, true); // Skip post loading and go right to success() for display
             alm.AjaxLoadMore.pagingPreloadedInit(data);
             alm.paging_init = false;
             alm.init = false;
@@ -1915,7 +1953,6 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
    var ajaxloadmore = document.querySelectorAll('.ajax-load-more-wrap');
    if (ajaxloadmore.length) {
       [].concat(_toConsumableArray(ajaxloadmore)).forEach(function (alm, e) {
-         //$(alm).data('alm', new $.ajaxloadmore($(alm), e));		   
          new $.ajaxloadmore($(alm), e);
       });
    }

@@ -128,6 +128,8 @@ class Sassy_Social_Share {
 		
 		// hook to upate plugin db/options based on version
 		add_action( 'plugins_loaded', array( $plugin_admin, 'update_db_check' ) );
+		// save GDPR notification flag in DB
+		add_action( 'wp_ajax_heateor_sss_gdpr_notification_read', array( $plugin_admin, 'gdpr_notification_read' ) );
 		// create admin menu
 		add_action( 'admin_menu', array( $plugin_admin, 'create_admin_menu' ) );
 		// set sanitization callback for plugin options

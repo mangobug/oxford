@@ -143,6 +143,7 @@ if( !class_exists('ALM_SHORTCODE') ):
    			'transition_container' => 'true',
    			'transition_container_classes' => '',
    			'masonry_selector' => '',
+   			'masonry_columnwidth' => '',
    			'masonry_animation' => '',
    			'masonry_horizontalorder' => '',
    			'progress_bar' => 'false',
@@ -169,7 +170,7 @@ if( !class_exists('ALM_SHORTCODE') ):
 			// Masonry
          if($transition === 'masonry'){
       		wp_enqueue_script( 'imagesloaded' ); // Enqueue before core ALM
-      		wp_enqueue_script( 'masonry' ); // Enqueue before core ALM
+      		wp_enqueue_script( 'ajax-load-more-masonry' ); // Enqueue before core ALM
          }
 
    		// Core ALM
@@ -653,6 +654,9 @@ if( !class_exists('ALM_SHORTCODE') ):
 	         }
 	   		if(!empty($masonry_selector)){
 	   		   $ajaxloadmore .= ' data-masonry-selector="'.$masonry_selector.'"';
+	         }
+	   		if(!empty($masonry_columnwidth)){
+	   		   $ajaxloadmore .= ' data-masonry-columnwidth="'.$masonry_columnwidth.'"';
 	         }
 	   		if(!empty($masonry_animation)){
 	   		   $ajaxloadmore .= ' data-masonry-animation="'.$masonry_animation.'"';
