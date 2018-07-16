@@ -92,7 +92,7 @@ var msie = ua.indexOf("MSIE ");
 
 if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
   console.log("IE");
-  var imgObj = document.getElementsByClassName('wp-post-images');
+  var imgObj = document.getElementsByClassName('wp-post-image');
   function gray(imgObj) {
       var canvas = document.createElement('canvas');
       var canvasContext = canvas.getContext('2d');
